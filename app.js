@@ -10,10 +10,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// app.get("/api", (req, res) => {
-//   res.send("IT'S ALIVE!");
-// });
-
 app.use("/api", route);
 
 const publicPath = path.join(__dirname, "client/build");

@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { NavBar } from "./components/NavBar/NavBar";
 import { Home } from "./components/homePage/Home";
 import { NewUser } from "./components/newUser/NewUser";
-import { Book } from "./components/books/Book";
+import { SubjectApi } from "./components/search/bySubject/SubjectApi";
+import { BookApi } from "./components/search/byBook/BookApi";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/newUser" component={NewUser} />
-          <Route exact path="/search" component={Book} />
+          <Route exact path="/search-subject" component={SubjectApi} />
+          <Route exact path="/search-book" component={BookApi} />
         </Switch>
       </Router>
     </>

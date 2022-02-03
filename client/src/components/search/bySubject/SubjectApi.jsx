@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 // import axios from "axios";
 // const url = "https://openlibrary.org";
-import url from "../../api/openLibApi";
+import url from "../../../api/openLibApi";
 
-export const Book = () => {
+export const SubjectApi = () => {
   const [cat, setCat] = useState("");
 
   const onHandleChange = (e) => {
@@ -12,7 +12,7 @@ export const Book = () => {
 
   const getOpenLib = async (e) => {
     e.preventDefault();
-    const { data } = await url.get(`/subjects/${cat}.json`);
+    const { data } = await url.get(`/subjects/${cat}.json?limit=50`);
     console.log(data);
   };
   return (
