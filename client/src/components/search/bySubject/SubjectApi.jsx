@@ -20,7 +20,6 @@ export const SubjectApi = () => {
     const { data } = await url.get(
       `/subjects/${cat.trim()}.json?limit=${numberOfResults}`
     );
-    console.log("where is this?", data.works);
     setBookRawInfo(data.works);
   };
 
@@ -38,7 +37,6 @@ export const SubjectApi = () => {
           return;
         }
         const bookIsbn = await url.get(`/books/${book.cover_edition_key}.json`);
-
         if (!bookIsbn.data.isbn_13) {
           return;
         }
@@ -46,7 +44,7 @@ export const SubjectApi = () => {
         bookObj.pages = bookIsbn.data.number_of_pages;
         bookObj.isbn_13 = bookIsbn.data.isbn_13;
         bookObj.isbn_10 = bookIsbn.data.isbn_10;
-        bookObj.publishers = bookIsbn.data.publishers.map((pub) => pub);
+        bookObj.publishers = bookIsbn.data.publishers?.map((pub) => pub);
         //get book thumbnail and subtitle from Google by ISBN number
         const bookImg = await googleUrl.get(`isbn:${bookIsbn.data.isbn_13}`);
         //conditional chaining when looking through objects
@@ -72,7 +70,6 @@ export const SubjectApi = () => {
     }
   }, [bookRawInfo, makeBookObjects]);
 
-  console.log(bookResults);
   return (
     <div>
       <form>
