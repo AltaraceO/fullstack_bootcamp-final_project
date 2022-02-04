@@ -3,8 +3,8 @@ import { UserContext } from "../../UserContext";
 import url from "../../../api/api";
 import { UserLogout } from "../logoutUser/UserLogout";
 
-export const NewUser = () => {
-  const [state, setState] = useState({ name: "", email: "", password: "" });
+export const UserLogin = () => {
+  const [state, setState] = useState({ email: "", password: "" });
   const [currentUser, setCurrentUser] = useContext(UserContext)["user"];
   const [message, setMessage] = useState("");
 
@@ -14,7 +14,7 @@ export const NewUser = () => {
   };
   const onHandleSubmit = async (e) => {
     e.preventDefault();
-    if (!state.name && !state.email && !state.password) {
+    if (!state.email && !state.password) {
       setMessage("All input fields must be complete");
       setTimeout(() => {
         setMessage("");
@@ -22,13 +22,12 @@ export const NewUser = () => {
     }
 
     try {
-      const { name, email, password } = state;
+      const { email, password } = state;
       const newObj = {
-        name,
         email,
         password,
       };
-      const { data } = await url.post("/users", newObj);
+      const { data } = await url.post("/users/login", newObj);
       console.log(data);
       localStorage.setItem("authToken", data.token);
       setCurrentUser(data.user);
@@ -44,9 +43,6 @@ export const NewUser = () => {
     <>
       <form>
         <br />
-        <label htmlFor="name">Name</label>
-        <input onChange={onHandleChange} type="text" name="name" />
-        <br />
         <label htmlFor="email">E-mail</label>
         <input onChange={onHandleChange} type="text" name="email" />
         <br />
@@ -58,7 +54,6 @@ export const NewUser = () => {
       {message && <span> {message} </span>}
       {currentUser && (
         <div>
-          {" "}
           <span>Welcome {currentUser.name}!</span>
           <UserLogout />
         </div>
