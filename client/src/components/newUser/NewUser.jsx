@@ -18,11 +18,11 @@ export const NewUser = () => {
       }, 3000);
     }
 
-    const config = {
-      header: {
-        "Content-Type": "application/json",
-      },
-    };
+    // const config = {
+    //   header: {
+    //     "Content-Type": "application/json",
+    //   },
+    // };
 
     try {
       const { name, email, password } = state;
