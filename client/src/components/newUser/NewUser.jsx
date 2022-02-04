@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { UserContext } from "../UserContext";
 import url from "../../api/api";
 
 export const NewUser = () => {
   const [state, setState] = useState({ name: "", email: "", password: "" });
+  const [currentUser, setCurrentUser] = useContext(UserContext)["user"];
   const [message, setMessage] = useState("");
 
   const onHandleChange = (e) => {
@@ -18,12 +20,6 @@ export const NewUser = () => {
       }, 3000);
     }
 
-    // const config = {
-    //   header: {
-    //     "Content-Type": "application/json",
-    //   },
-    // };
-
     try {
       const { name, email, password } = state;
       const newObj = {
@@ -33,6 +29,8 @@ export const NewUser = () => {
       };
       const { data } = await url.post("/users", newObj);
       console.log(data);
+      localStorage.setItem("authToken", data.token);
+      setCurrentUser(data.user);
     } catch (err) {
       setMessage(err.message);
       setTimeout(() => {
@@ -57,6 +55,7 @@ export const NewUser = () => {
         <button onClick={onHandleSubmit}>Submit</button>
       </form>
       {message && <span> {message} </span>}
+      {currentUser && <span>We have a user!{currentUser.name}</span>}
     </>
   );
 };
