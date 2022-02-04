@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { UserProvider } from "./components/UserContext";
 import { NavBar } from "./components/NavBar/NavBar";
 import { Home } from "./components/homePage/Home";
-import { NewUser } from "./components/newUser/NewUser";
+import { NewUser } from "./components/users/newUser/NewUser";
 import { SubjectApi } from "./components/search/bySubject/SubjectApi";
 import { BookApi } from "./components/search/byBook/BookApi";
 

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import { UserContext } from "../UserContext";
-import url from "../../api/api";
+import { UserContext } from "../../UserContext";
+import url from "../../../api/api";
 
 export const NewUser = () => {
   const [state, setState] = useState({ name: "", email: "", password: "" });
@@ -55,7 +55,7 @@ export const NewUser = () => {
         <button onClick={onHandleSubmit}>Submit</button>
       </form>
       {message && <span> {message} </span>}
-      {currentUser && <span>We have a user!{currentUser.name}</span>}
+      {currentUser && <span>Welcome {currentUser.name}!</span>}
     </>
   );
 };
