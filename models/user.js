@@ -3,55 +3,57 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const usersSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  email: {
-    type: String,
-    unique: true,
-    required: true,
-    trim: true,
-    lowercase: true,
-    validate(value) {
-      if (!validator.isEmail(value)) {
-        throw new Error("Invalid email address");
-      }
+const usersSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true,
     },
-  },
-  password: {
-    required: true,
-    type: String,
-    trim: true,
-    minLength: 7,
-    validate(value) {
-      if (value.toLowerCase().includes("password")) {
-        throw new Error("Cannot include the word 'password'");
-      }
-    },
-  },
-  tokens: [
-    {
-      token: {
-        type: String,
-        required: true,
+    email: {
+      type: String,
+      unique: true,
+      required: true,
+      trim: true,
+      lowercase: true,
+      validate(value) {
+        if (!validator.isEmail(value)) {
+          throw new Error("Invalid email address");
+        }
       },
     },
-  ],
-  //Reference to the books that the user added to the list
-  books: [
-    {
+    password: {
+      required: true,
       type: String,
+      trim: true,
+      minLength: 7,
+      validate(value) {
+        if (value.toLowerCase().includes("password")) {
+          throw new Error("Cannot include the word 'password'");
+        }
+      },
     },
-  ],
-  genres: [
-    {
-      type: String,
+    tokens: [
+      {
+        token: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
+    //Reference to the books that the user added to the list
+    books: [
+      {
+        type: String,
+      },
+    ],
+    genres: {
+      type: mongoose.Schema.Types.Mixed,
+      default: {},
     },
-  ],
-});
+  },
+  { minimize: false }
+);
 
 //when signing up or logging in this will create a fresh token to save in client's local storage
 usersSchema.methods.generateAuthToken = async function () {

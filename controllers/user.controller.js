@@ -37,14 +37,25 @@ const logoutAll = async (req, res) => {
 
 const addBook = async (req, res) => {
   try {
+    console.log(1);
     if (req.user.books.includes(req.body._id)) {
       throw new Error("Your list already includes this book");
     }
     req.user.books.push(req.body._id);
+    console.log(2);
+    // const cats = req.body.categories;
+    // const genre = req.user.genres;
+
+    // for (const cat of cats) {
+    //   req.user.genres[cat] = req.user.genres[cat] + 1 || 1;
+    // }
+    // console.log(req.body.categories);
+    console.log(typeof req.user.books);
     req.body.categories.forEach((cat) => {
-      req.user.genres.push(cat);
+      req.user.genres[cat] = req.user.genres[cat] + 1 || 1;
     });
-    req.user.genres = [...new Set(req.user.genres)];
+    console.log(3);
+    // req.user.genres = [...new Set(req.user.genres)];
 
     await req.user.save();
 
