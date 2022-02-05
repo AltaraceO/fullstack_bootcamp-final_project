@@ -18,7 +18,7 @@ export const AddBooks = ({ book }) => {
         addedBook.data,
         config
       );
-      console.log("New book added", addedBook.data, addToUser.data.genres);
+      console.log("New book added", addToUser);
     } catch (err) {
       console.log("Error:", err.response.data);
     }

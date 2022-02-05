@@ -12,7 +12,7 @@ export const DisplayResults = ({ results }) => {
             <hr />
             <span>{book.title}</span>
             <br />
-            <span>{book.author[0]}</span>
+            <span>{book.authors[0]}</span>
             <br />
             <img src={book.thumb} alt="book-cover" />
             <br />

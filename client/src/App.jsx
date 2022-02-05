@@ -8,6 +8,7 @@ import { NewUser } from "./components/users/newUser/NewUser";
 import { UserLogin } from "./components/users/loginUser/UserLogin";
 import { SubjectApi } from "./components/search/bySubject/SubjectApi";
 import { BookApi } from "./components/search/byBook/BookApi";
+import { UserPage } from "./components/users/userPage/UserPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route exact path="/userLogin" component={UserLogin} />
             <Route exact path="/search-subject" component={SubjectApi} />
             <Route exact path="/search-book" component={BookApi} />
+            <Route exact path="/user-page" component={UserPage} />
           </Switch>
         </UserProvider>
       </Router>

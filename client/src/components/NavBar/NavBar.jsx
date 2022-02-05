@@ -15,7 +15,7 @@ export const NavBar = () => {
       <span>|</span>
       <Link to="/search-book"> Book Search </Link>
       <span>|</span>
-      {currentUser && <span>Welcome {currentUser.name}</span>}
+      {currentUser && <Link to="/user-page">Welcome {currentUser.name}</Link>}
     </div>
   );
 };

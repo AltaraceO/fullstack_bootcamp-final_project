@@ -56,7 +56,6 @@ const addBook = async (req, res) => {
     });
 
     await req.user.save();
-    console.log(1);
     res.send(req.user);
   } catch (err) {
     res.send(err);

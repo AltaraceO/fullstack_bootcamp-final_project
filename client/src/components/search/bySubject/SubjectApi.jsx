@@ -27,7 +27,7 @@ export const SubjectApi = () => {
     const allBooks = await Promise.all(
       bookRawInfo.map(async (book) => {
         const bookObj = {
-          author: book.authors.map((auth) => auth.name),
+          authors: book.authors.map((auth) => auth.name),
           title: book.title,
           categories: book.subject,
         };
