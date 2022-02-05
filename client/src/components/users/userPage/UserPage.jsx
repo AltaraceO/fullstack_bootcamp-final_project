@@ -7,7 +7,7 @@ export const UserPage = () => {
   const [currentUser] = useContext(UserContext)["user"];
   const [bookData, setBookData] = useState("");
 
-  useEffect(async () => {
+  useEffect(() => {
     const config = {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("authToken")}`,
