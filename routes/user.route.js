@@ -15,4 +15,8 @@ router.post("/logoutAll", auth, (req, res) => {
   userController.logoutAll(req, res);
 });
 
+router.post("/addBook", auth, (req, res) => {
+  userController.addBook(req, res);
+});
+
 module.exports = router;

@@ -35,8 +35,28 @@ const logoutAll = async (req, res) => {
   }
 };
 
+const addBook = async (req, res) => {
+  try {
+    if (req.user.books.includes(req.body._id)) {
+      throw new Error("Your list already includes this book");
+    }
+    req.user.books.push(req.body._id);
+    req.body.categories.forEach((cat) => {
+      req.user.genres.push(cat);
+    });
+    req.user.genres = [...new Set(req.user.genres)];
+
+    await req.user.save();
+
+    res.send(req.user);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 module.exports = {
   addUser,
   loginUser,
   logoutAll,
+  addBook,
 };

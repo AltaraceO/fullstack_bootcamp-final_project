@@ -8,7 +8,7 @@ const addBook = async (req, res) => {
 
     res.status(201).send(book);
   } catch (err) {
-    res.status(400).send({ error: err.message });
+    res.status(404).send(err);
   }
 };
 

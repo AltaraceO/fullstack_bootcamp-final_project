@@ -43,8 +43,7 @@ const usersSchema = new mongoose.Schema({
   //Reference to the books that the user added to the list
   books: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Books",
+      type: String,
     },
   ],
   genres: [

@@ -8,8 +8,14 @@ const booksSchema = new mongoose.Schema({
   },
   authors: [],
   categories: [],
-  isbn_10: [],
-  isbn_13: [],
+  isbn_10: {
+    type: [],
+    unique: true,
+  },
+  isbn_13: {
+    type: [],
+    unique: true,
+  },
   publisher: [],
   subtitle: String,
   pages: Number,
@@ -19,6 +25,15 @@ const booksSchema = new mongoose.Schema({
   },
   url: String,
 });
+
+booksSchema.post("save", function (err, doc, next) {
+  if (err.message.includes(11000)) {
+    next("This book is already included");
+  } else {
+    next(err);
+  }
+});
+
 const Books = mongoose.model("Books", booksSchema);
 
 module.exports = Books;

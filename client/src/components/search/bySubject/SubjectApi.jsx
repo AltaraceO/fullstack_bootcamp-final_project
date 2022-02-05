@@ -7,7 +7,7 @@ export const SubjectApi = () => {
   const [cat, setCat] = useState("");
   const [bookRawInfo, setBookRawInfo] = useState([]);
   const [bookResults, setBookResults] = useState("");
-  const numberOfResults = 50;
+  const numberOfResults = 20;
 
   const onHandleChange = (e) => {
     setCat(e.target.value);

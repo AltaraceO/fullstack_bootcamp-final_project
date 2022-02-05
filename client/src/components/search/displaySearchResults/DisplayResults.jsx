@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../../UserContext";
+import { AddBooks } from "../addBooks/AddBooks";
 
 export const DisplayResults = ({ results }) => {
+  const [currentUser] = useContext(UserContext)["user"];
   return (
-    <div>
+    <>
       {results.map((book) => {
         return (
           <div key={book.isbn_13[0]}>
@@ -14,9 +17,10 @@ export const DisplayResults = ({ results }) => {
             <img src={book.thumb} alt="book-cover" />
             <br />
             <span>{book.subtitle}</span>
+            {currentUser && <AddBooks book={book} />}
           </div>
         );
       })}
-    </div>
+    </>
   );
 };

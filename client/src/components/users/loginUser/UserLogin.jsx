@@ -4,7 +4,10 @@ import url from "../../../api/api";
 import { UserLogout } from "../logoutUser/UserLogout";
 
 export const UserLogin = () => {
-  const [state, setState] = useState({ email: "", password: "" });
+  const [state, setState] = useState({
+    email: "nina@nina.com",
+    password: "same4all",
+  });
   const [currentUser, setCurrentUser] = useContext(UserContext)["user"];
   const [message, setMessage] = useState("");
 
@@ -44,10 +47,20 @@ export const UserLogin = () => {
       <form>
         <br />
         <label htmlFor="email">E-mail</label>
-        <input onChange={onHandleChange} type="text" name="email" />
+        <input
+          onChange={onHandleChange}
+          type="text"
+          name="email"
+          value={state.email}
+        />
         <br />
         <label htmlFor="password">Password</label>
-        <input onChange={onHandleChange} type="text" name="password" />
+        <input
+          onChange={onHandleChange}
+          type="text"
+          name="password"
+          value={state.password}
+        />
         <br />
         <button onClick={onHandleSubmit}>Submit</button>
       </form>
