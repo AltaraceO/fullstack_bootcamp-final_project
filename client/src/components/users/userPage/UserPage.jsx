@@ -6,6 +6,7 @@ import { DisplayResults } from "../../search/displaySearchResults/DisplayResults
 export const UserPage = () => {
   const [currentUser] = useContext(UserContext)["user"];
   const [bookData, setBookData] = useState("");
+  const [genreData, setGenreData] = useState("");
 
   useEffect(() => {
     const config = {
@@ -18,7 +19,9 @@ export const UserPage = () => {
       try {
         //config comes second with GET and third in POST!!
         const books = await url.get("/books/getBooks", config);
-        console.log(books.data);
+        const genres = await url.get("/books/getGenres", config);
+
+        setGenreData(genres.data);
         setBookData(books.data);
       } catch (err) {
         console.log(err.response);
@@ -30,6 +33,15 @@ export const UserPage = () => {
   console.log(currentUser);
   return (
     <div>
+      {genreData &&
+        genreData.map((g) => {
+          return (
+            <div key={g._id}>
+              <span>{g.genre} -</span>
+              <span> {((g.value / bookData.length) * 100).toFixed(2)}%</span>
+            </div>
+          );
+        })}
       {bookData && <DisplayResults results={bookData} />}
 
       {/* <button onClick={onHandleGetBook}>click</button> */}

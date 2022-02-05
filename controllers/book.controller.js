@@ -22,7 +22,33 @@ const getBooks = async (req, res) => {
   }
 };
 
+const getGenres = async (req, res) => {
+  const irrelevant = [
+    "Accessible book",
+    "Protected DAISY",
+    "English Detective and mystery stories",
+    "New York Times bestseller",
+    "Large type books ",
+  ];
+  try {
+    const genres = req.user.genres.filter(
+      (g) =>
+        g.value > 2 &&
+        g.genre !== "Accessible book" &&
+        g.genre !== "Protected DAISY" &&
+        g.genre !== "English Detective and mystery stories" &&
+        g.genre !== "New York Times bestseller" &&
+        g.genre !== "Large type books"
+    );
+
+    res.send(genres);
+  } catch (err) {
+    res.status(404).send(err);
+  }
+};
+
 module.exports = {
   addBook,
   getBooks,
+  getGenres,
 };

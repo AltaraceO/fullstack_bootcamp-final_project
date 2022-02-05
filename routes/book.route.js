@@ -11,4 +11,8 @@ router.get("/getBooks", auth, (req, res) => {
   bookController.getBooks(req, res);
 });
 
+router.get("/getGenres", auth, (req, res) => {
+  bookController.getGenres(req, res);
+});
+
 module.exports = router;
