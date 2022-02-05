@@ -47,12 +47,15 @@ const usersSchema = new mongoose.Schema(
         type: String,
       },
     ],
-    genres: {
-      type: mongoose.Schema.Types.Mixed,
-      default: {},
-    },
-  },
-  { minimize: false }
+    //this allows me to save any 'type' under genre
+    genres: [
+      {
+        genre: String,
+        value: Number,
+      },
+    ],
+  } //, minimize false - allows mongo to save an empty object initially
+  // { minimize: false }
 );
 
 //when signing up or logging in this will create a fresh token to save in client's local storage
