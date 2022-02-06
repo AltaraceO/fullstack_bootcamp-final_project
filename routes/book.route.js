@@ -15,4 +15,12 @@ router.get("/getGenres", auth, (req, res) => {
   bookController.getGenres(req, res);
 });
 
+router.post("/comment", auth, (req, res) => {
+  bookController.addComment(req, res);
+});
+
+router.post("/checkBooks", (req, res) => {
+  bookController.checkBooks(req, res);
+});
+
 module.exports = router;

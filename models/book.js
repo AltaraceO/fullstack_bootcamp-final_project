@@ -9,11 +9,11 @@ const booksSchema = new mongoose.Schema({
   authors: [],
   categories: [],
   isbn_10: {
-    type: [],
+    type: String,
     unique: true,
   },
   isbn_13: {
-    type: [],
+    type: Number,
     unique: true,
   },
   publisher: [],
@@ -24,6 +24,19 @@ const booksSchema = new mongoose.Schema({
     required: true,
   },
   url: String,
+  comments: {
+    type: [
+      {
+        author: String,
+        comment: String,
+      },
+    ],
+    default: [],
+  },
+  likes: {
+    type: [String],
+    default: [],
+  },
 });
 
 booksSchema.post("save", function (err, doc, next) {

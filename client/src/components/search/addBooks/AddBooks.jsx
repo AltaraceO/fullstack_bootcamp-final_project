@@ -12,6 +12,7 @@ export const AddBooks = ({ book }) => {
       },
     };
     try {
+      console.log(book);
       const addedBook = await url.post("/books", book);
       const addToUser = await url.post(
         "/users/addBook",

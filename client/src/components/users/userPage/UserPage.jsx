@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { UserContext } from "../../UserContext";
 import url from "../../../api/api";
-import { DisplayResults } from "../../search/displaySearchResults/DisplayResults";
+import { DisplayUserBooks } from "../userPage/displayUserBooks/DisplayUserBooks";
 
 export const UserPage = () => {
   const [currentUser] = useContext(UserContext)["user"];
@@ -30,7 +30,6 @@ export const UserPage = () => {
     getUserBooks();
   }, []);
 
-  console.log(currentUser);
   return (
     <div>
       {genreData &&
@@ -42,7 +41,7 @@ export const UserPage = () => {
             </div>
           );
         })}
-      {bookData && <DisplayResults results={bookData} />}
+      {bookData && <DisplayUserBooks results={bookData} />}
 
       {/* <button onClick={onHandleGetBook}>click</button> */}
     </div>

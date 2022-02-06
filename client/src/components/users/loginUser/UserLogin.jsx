@@ -31,7 +31,6 @@ export const UserLogin = () => {
         password,
       };
       const { data } = await url.post("/users/login", newObj);
-      console.log(data);
       localStorage.setItem("authToken", data.token);
       setCurrentUser(data.user);
     } catch (err) {

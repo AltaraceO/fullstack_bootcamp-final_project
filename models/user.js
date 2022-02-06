@@ -3,60 +3,57 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const usersSchema = new mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: true,
-      trim: true,
+const usersSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  email: {
+    type: String,
+    unique: true,
+    required: true,
+    trim: true,
+    lowercase: true,
+    validate(value) {
+      if (!validator.isEmail(value)) {
+        throw new Error("Invalid email address");
+      }
     },
-    email: {
-      type: String,
-      unique: true,
-      required: true,
-      trim: true,
-      lowercase: true,
-      validate(value) {
-        if (!validator.isEmail(value)) {
-          throw new Error("Invalid email address");
-        }
-      },
+  },
+  password: {
+    required: true,
+    type: String,
+    trim: true,
+    minLength: 7,
+    validate(value) {
+      if (value.toLowerCase().includes("password")) {
+        throw new Error("Cannot include the word 'password'");
+      }
     },
-    password: {
-      required: true,
-      type: String,
-      trim: true,
-      minLength: 7,
-      validate(value) {
-        if (value.toLowerCase().includes("password")) {
-          throw new Error("Cannot include the word 'password'");
-        }
-      },
-    },
-    tokens: [
-      {
-        token: {
-          type: String,
-          required: true,
-        },
-      },
-    ],
-    //Reference to the books that the user added to the list
-    books: [
-      {
+  },
+  tokens: [
+    {
+      token: {
         type: String,
+        required: true,
       },
-    ],
-    //this allows me to save any 'type' under genre
-    genres: [
-      {
-        genre: String,
-        value: Number,
-      },
-    ],
-  } //, minimize false - allows mongo to save an empty object initially
-  // { minimize: false }
-);
+    },
+  ],
+  //Reference to the books that the user added to the list
+  books: [
+    {
+      type: String,
+    },
+  ],
+  //this allows me to save any 'type' under genre
+  genres: [
+    {
+      genre: String,
+      value: Number,
+    },
+  ],
+});
 
 //when signing up or logging in this will create a fresh token to save in client's local storage
 usersSchema.methods.generateAuthToken = async function () {

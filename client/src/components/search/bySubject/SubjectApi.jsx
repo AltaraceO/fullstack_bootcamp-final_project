@@ -42,8 +42,8 @@ export const SubjectApi = () => {
         }
         bookObj.url = `https://openlibrary.org${bookIsbn.data.key}`;
         bookObj.pages = bookIsbn.data.number_of_pages;
-        bookObj.isbn_13 = bookIsbn.data.isbn_13;
-        bookObj.isbn_10 = bookIsbn.data.isbn_10;
+        bookObj.isbn_13 = bookIsbn.data.isbn_13[0];
+        bookObj.isbn_10 = bookIsbn.data.isbn_10?.[0];
         bookObj.publishers = bookIsbn.data.publishers?.map((pub) => pub);
         //get book thumbnail and subtitle from Google by ISBN number
         const bookImg = await googleUrl.get(`isbn:${bookIsbn.data.isbn_13}`);
