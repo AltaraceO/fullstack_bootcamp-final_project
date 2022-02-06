@@ -44,6 +44,7 @@ const getGenres = async (req, res) => {
         g.genre !== "Protected DAISY" &&
         g.genre !== "English Detective and mystery stories" &&
         g.genre !== "New York Times bestseller" &&
+        g.genre !== "Translations into English" &&
         g.genre !== "Large type books" &&
         g.genre !== `Reading Level-Grade ${10 && 9}`
     );
@@ -88,10 +89,29 @@ const checkBooks = async (req, res) => {
   }
 };
 
+const like = async (req, res) => {
+  try {
+    const likeObj = {
+      user: req.user._id,
+    };
+
+    const book = await Books.findById(req.body.book._id);
+
+    book.likes.push(likeObj);
+
+    const updatedBook = await Books.findByIdAndUpdate(req.body.book._id, book, {
+      new: true,
+    });
+
+    res.send(updatedBook);
+  } catch (err) {}
+};
+
 module.exports = {
   addBook,
   getBooks,
   getGenres,
   addComment,
   checkBooks,
+  like,
 };

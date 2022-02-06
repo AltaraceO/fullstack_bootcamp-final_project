@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../../UserContext";
 import { BookComments } from "../bookComments/BookComments";
+import { BookLikes } from "../bookLikes/BookLikes";
 
 export const DisplayUserBooks = ({ results }) => {
   const [currentUser] = useContext(UserContext)["user"];
@@ -17,7 +18,7 @@ export const DisplayUserBooks = ({ results }) => {
             <img src={book.thumb} alt="book-cover" />
             <br />
             <span>{book.subtitle}</span>
-            <button>Like</button>
+            <BookLikes book={book} user={currentUser} />
             <BookComments book={book} user={currentUser} />
           </div>
         );

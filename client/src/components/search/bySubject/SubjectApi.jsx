@@ -21,6 +21,7 @@ export const SubjectApi = () => {
       `/subjects/${cat.trim()}.json?limit=${numberOfResults}`
     );
     setBookRawInfo(data.works);
+    setCat("");
   };
 
   const makeBookObjects = React.useCallback(async () => {
@@ -76,7 +77,7 @@ export const SubjectApi = () => {
         <label htmlFor="book"></label>
         <input onChange={onHandleChange} type="text" name="book" value={cat} />
         <br />
-        <button onClick={onHandleClick}>Submit</button>
+        <button onClick={onHandleClick}>Search</button>
       </form>
       {bookResults && <DisplayResults results={bookResults} />}
     </div>

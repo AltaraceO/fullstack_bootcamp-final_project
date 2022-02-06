@@ -34,8 +34,12 @@ const booksSchema = new mongoose.Schema({
     default: [],
   },
   likes: {
-    type: [String],
-    default: [],
+    unique: true,
+    type: [
+      {
+        user: String,
+      },
+    ],
   },
 });
 
