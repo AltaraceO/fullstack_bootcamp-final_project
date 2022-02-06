@@ -91,20 +91,26 @@ const checkBooks = async (req, res) => {
 
 const like = async (req, res) => {
   try {
-    const likeObj = {
-      user: req.user._id,
-    };
+    // const likeObj = {
+    //   user: req.user._id,
+    // };
 
-    const book = await Books.findById(req.body.book._id);
+    const book = await Books.findById(req.body._id);
 
-    book.likes.push(likeObj);
+    if (book.likes.includes(req.user._id)) {
+      res.status(500).send("Unable to like the same book twice");
+    }
 
-    const updatedBook = await Books.findByIdAndUpdate(req.body.book._id, book, {
+    book.likes.push(req.user._id);
+
+    const updatedBook = await Books.findByIdAndUpdate(req.body._id, book, {
       new: true,
     });
 
     res.send(updatedBook);
-  } catch (err) {}
+  } catch (err) {
+    res.send(err.response);
+  }
 };
 
 module.exports = {

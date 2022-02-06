@@ -3,6 +3,7 @@ import url from "../../../../api/api";
 
 export const BookLikes = ({ book, user }) => {
   const [isActive, setIsActive] = useState(false);
+  const []
 
   const config = {
     headers: {
@@ -11,7 +12,12 @@ export const BookLikes = ({ book, user }) => {
   };
 
   const onHandleLike = async () => {
-    const { data } = await url.post("/books/like", book, config);
+    try {
+      const { data } = await url.post("/books/like", book, config);
+      console.log(data);
+    } catch (err) {
+      console.log(err.response);
+    }
   };
 
   useEffect(() => {
@@ -22,7 +28,9 @@ export const BookLikes = ({ book, user }) => {
 
   return (
     <div>
-      <button disabled={isActive}>Like</button>
+      <button onClick={onHandleLike} disabled={isActive}>
+        Like
+      </button>
     </div>
   );
 };

@@ -23,7 +23,7 @@ router.post("/checkBooks", (req, res) => {
   bookController.checkBooks(req, res);
 });
 
-router.post("/lik", auth, (req, res) => {
+router.post("/like", auth, (req, res) => {
   bookController.like(req, res);
 });
 
