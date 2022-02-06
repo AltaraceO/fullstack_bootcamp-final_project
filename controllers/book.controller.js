@@ -91,10 +91,6 @@ const checkBooks = async (req, res) => {
 
 const like = async (req, res) => {
   try {
-    // const likeObj = {
-    //   user: req.user._id,
-    // };
-
     const book = await Books.findById(req.body._id);
 
     if (book.likes.includes(req.user._id)) {

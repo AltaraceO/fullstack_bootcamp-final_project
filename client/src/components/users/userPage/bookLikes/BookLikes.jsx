@@ -1,9 +1,11 @@
+// import { urlencoded } from "express";
 import React, { useEffect, useState } from "react";
 import url from "../../../../api/api";
+import { ErrorMessage } from "../../../messages/ErrorMessage";
 
 export const BookLikes = ({ book, user }) => {
   const [isActive, setIsActive] = useState(false);
-  const []
+  const [error, setError] = useState("");
 
   const config = {
     headers: {
@@ -17,20 +19,23 @@ export const BookLikes = ({ book, user }) => {
       console.log(data);
     } catch (err) {
       console.log(err.response);
+      setError(err.response.data);
     }
   };
 
-  useEffect(() => {
-    const checkLike = async () => {
-      console.log("started");
-    };
-  }, []);
+  // useEffect(() => {
+  //   const checkLike = async () => {
+  //     const { data } = await url.get("/books/checkLikes", book, config);
+  //     console.log("started");
+  //   };
+  // }, []);
 
   return (
     <div>
       <button onClick={onHandleLike} disabled={isActive}>
         Like
       </button>
+      {error && <ErrorMessage msg={error} />}
     </div>
   );
 };

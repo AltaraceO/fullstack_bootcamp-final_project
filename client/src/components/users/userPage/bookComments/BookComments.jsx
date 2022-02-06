@@ -29,7 +29,7 @@ export const BookComments = ({ book, user }) => {
 
   useEffect(() => {
     setComments(book.comments);
-  }, []);
+  }, [setComment, book.comments]);
 
   return (
     <div>

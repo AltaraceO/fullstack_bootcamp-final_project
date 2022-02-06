@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { UserContext } from "../../UserContext";
 import url from "../../../api/api";
 import { DisplayUserBooks } from "../userPage/displayUserBooks/DisplayUserBooks";
@@ -7,6 +8,8 @@ export const UserPage = () => {
   const [currentUser] = useContext(UserContext)["user"];
   const [bookData, setBookData] = useState("");
   const [genreData, setGenreData] = useState("");
+
+  const history = useHistory();
 
   useEffect(() => {
     const config = {
@@ -27,7 +30,11 @@ export const UserPage = () => {
         console.log(err.response);
       }
     };
-    getUserBooks();
+    if (!currentUser) {
+      history.push("/");
+    } else {
+      getUserBooks();
+    }
   }, []);
 
   return (
