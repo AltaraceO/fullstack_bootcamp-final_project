@@ -4,7 +4,7 @@ export const DisplayComments = ({ comments }) => {
   console.log(comments);
   return (
     <>
-      <div>
+      <>
         {comments.map((comm) => {
           return (
             <div key={comm._id}>
@@ -13,7 +13,7 @@ export const DisplayComments = ({ comments }) => {
             </div>
           );
         })}
-      </div>
+      </>
     </>
   );
 };

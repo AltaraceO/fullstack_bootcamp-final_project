@@ -32,7 +32,7 @@ export const BookComments = ({ book, user }) => {
   }, [setComment, book.comments]);
 
   return (
-    <div>
+    <>
       Comments:
       {comments &&
         comments.map((comm) => {
@@ -48,6 +48,6 @@ export const BookComments = ({ book, user }) => {
         onChange={(e) => setComment(e.target.value)}
       />
       <button onClick={onHandleClick}>Comment</button>{" "}
-    </div>
+    </>
   );
 };

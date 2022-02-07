@@ -14,13 +14,13 @@ export const BookApi = () => {
     console.log(data);
   };
   return (
-    <div>
+    <>
       <form>
         <label htmlFor="book">Search by ISBN, author, or book title</label>
         <input onChange={onHandleChange} type="text" name="book" value={cat} />
         <br />
         <button onClick={getOpenLib}>Submit</button>
       </form>
-    </div>
+    </>
   );
 };

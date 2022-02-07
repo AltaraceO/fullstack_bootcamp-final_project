@@ -10,5 +10,5 @@ export const ErrorMessage = ({ msg }) => {
     }, 5000);
   }, []);
   console.log(msg);
-  return <div>{message}</div>;
+  return <>{message}</>;
 };

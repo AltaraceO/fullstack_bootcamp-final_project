@@ -62,9 +62,24 @@ const addBook = async (req, res) => {
   }
 };
 
+const removeBook = async (req, res) => {
+  try {
+    const newList = req.user.books.filter((book) => book !== req.body._id);
+
+    req.user.books = newList;
+
+    await req.user.save();
+
+    res.send(req.user);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+
 module.exports = {
   addUser,
   loginUser,
   logoutAll,
   addBook,
+  removeBook,
 };

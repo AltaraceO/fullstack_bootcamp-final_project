@@ -31,11 +31,11 @@ export const BookLikes = ({ book, user }) => {
   // }, []);
 
   return (
-    <div>
+    <>
       <button onClick={onHandleLike} disabled={isActive}>
         Like
       </button>
       {error && <ErrorMessage msg={error} />}
-    </div>
+    </>
   );
 };

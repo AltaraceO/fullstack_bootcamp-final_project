@@ -19,4 +19,8 @@ router.post("/addBook", auth, (req, res) => {
   userController.addBook(req, res);
 });
 
+router.post("/removeBook", auth, (req, res) => {
+  userController.removeBook(req, res);
+});
+
 module.exports = router;

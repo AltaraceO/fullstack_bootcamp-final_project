@@ -38,7 +38,7 @@ export const UserPage = () => {
   }, []);
 
   return (
-    <div>
+    <>
       {genreData &&
         genreData.map((g) => {
           return (
@@ -49,8 +49,6 @@ export const UserPage = () => {
           );
         })}
       {bookData && <DisplayUserBooks results={bookData} />}
-
-      {/* <button onClick={onHandleGetBook}>click</button> */}
-    </div>
+    </>
   );
 };

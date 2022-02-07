@@ -25,8 +25,8 @@ export const AddBooks = ({ book }) => {
     }
   };
   return (
-    <div>
+    <>
       <button onClick={onHandleAddBook}>Add to my book list</button>
-    </div>
+    </>
   );
 };

@@ -72,7 +72,7 @@ export const SubjectApi = () => {
   }, [bookRawInfo, makeBookObjects]);
 
   return (
-    <div>
+    <>
       <form>
         <label htmlFor="book"></label>
         <input onChange={onHandleChange} type="text" name="book" value={cat} />
@@ -80,6 +80,6 @@ export const SubjectApi = () => {
         <button onClick={onHandleClick}>Search</button>
       </form>
       {bookResults && <DisplayResults results={bookResults} />}
-    </div>
+    </>
   );
 };

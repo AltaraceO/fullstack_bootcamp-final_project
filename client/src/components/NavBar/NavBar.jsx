@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const NavBar = () => {
   const [currentUser] = useContext(UserContext)["user"];
   return (
-    <div>
+    <>
       <Link to="/"> Home </Link>
       <span>|</span>
       <Link to="/newUser"> New User </Link>
@@ -16,6 +16,6 @@ export const NavBar = () => {
       <Link to="/search-book"> Book Search </Link>
       <span>|</span>
       {currentUser && <Link to="/user-page">Welcome {currentUser.name}</Link>}
-    </div>
+    </>
   );
 };
