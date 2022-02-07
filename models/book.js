@@ -36,6 +36,9 @@ const booksSchema = new mongoose.Schema({
   likes: {
     type: [String],
   },
+  read: {
+    type: [String],
+  },
 });
 
 booksSchema.post("save", function (err, doc, next) {

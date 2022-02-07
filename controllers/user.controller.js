@@ -84,7 +84,6 @@ const likeBook = async (req, res) => {
       }
       return book;
     });
-
     await Users.findByIdAndUpdate(req.user._id, {
       $set: { books },
     });
@@ -102,7 +101,40 @@ const unlikeBook = async (req, res) => {
       }
       return book;
     });
-
+    await Users.findByIdAndUpdate(req.user._id, {
+      $set: { books },
+    });
+    req.user.save();
+    res.status(201).send(req.user);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+const readBook = async (req, res) => {
+  try {
+    const books = req.user.books.map((book) => {
+      if (book._id === req.body._id) {
+        book.read = true;
+      }
+      return book;
+    });
+    await Users.findByIdAndUpdate(req.user._id, {
+      $set: { books },
+    });
+    await req.user.save();
+    res.status(201).send(req.user);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+const notReadBook = async (req, res) => {
+  try {
+    const books = req.user.books.map((book) => {
+      if (book._id === req.body._id) {
+        book.read = false;
+      }
+      return book;
+    });
     await Users.findByIdAndUpdate(req.user._id, {
       $set: { books },
     });
@@ -121,4 +153,6 @@ module.exports = {
   removeBook,
   likeBook,
   unlikeBook,
+  readBook,
+  notReadBook,
 };

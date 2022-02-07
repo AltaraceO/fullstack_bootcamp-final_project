@@ -26,8 +26,17 @@ router.post("/removeBook", auth, (req, res) => {
 router.post("/likeBook", auth, (req, res) => {
   userController.likeBook(req, res);
 });
+
 router.post("/unlikeBook", auth, (req, res) => {
   userController.unlikeBook(req, res);
+});
+
+router.post("/readBook", auth, (req, res) => {
+  userController.readBook(req, res);
+});
+
+router.post("/notReadBook", auth, (req, res) => {
+  userController.notReadBook(req, res);
 });
 
 module.exports = router;

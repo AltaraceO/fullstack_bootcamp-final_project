@@ -4,10 +4,10 @@ import { UserContext } from "../../../UserContext";
 import url from "../../../../api/api";
 import { ErrorMessage } from "../../../messages/ErrorMessage";
 
-export const BookLikes = ({ book }) => {
+export const Read = ({ book }) => {
   const [currentUser, setCurrentUser] = useContext(UserContext)["user"];
-  const [isLiked, setIsLiked] = useState(false);
-  const [isUnLiked, setIsUnLiked] = useState(false);
+  const [isRead, setIsRead] = useState(false);
+  const [isUnRead, setIsUnRead] = useState(false);
   const [error, setError] = useState("");
 
   const config = {
@@ -16,21 +16,21 @@ export const BookLikes = ({ book }) => {
     },
   };
 
-  const onHandleUnLike = async () => {
+  const onHandleNotRead = async () => {
     try {
-      await url.post("/books/unlike", book, config);
-      const userUnLike = await url.post("/users/unLikeBook", book, config);
-      setCurrentUser(userUnLike.data);
+      await url.post("/books/notRead", book, config);
+      const userNotRead = await url.post("/users/notReadBook", book, config);
+      setCurrentUser(userNotRead.data);
     } catch (err) {
       console.log(err.response);
     }
   };
 
-  const onHandleLike = async () => {
+  const onHandleRead = async () => {
     try {
-      await url.post("/books/like", book, config);
-      const userLike = await url.post("/users/likeBook", book, config);
-      setCurrentUser(userLike.data);
+      await url.post("/books/read", book, config);
+      const userRead = await url.post("/users/readBook", book, config);
+      setCurrentUser(userRead.data);
     } catch (err) {
       console.log(err.response);
       setError(err.response.data);
@@ -38,16 +38,16 @@ export const BookLikes = ({ book }) => {
   };
 
   useEffect(() => {
-    setIsLiked(false);
-    setIsUnLiked(false);
+    setIsRead(false);
+    setIsUnRead(false);
     const currentBook = currentUser.books.find((b) => b._id === book._id);
-    currentBook?.like ? setIsLiked(true) : setIsUnLiked(true);
+    currentBook?.read ? setIsRead(true) : setIsUnRead(true);
   }, [book._id, currentUser]);
 
   return (
     <>
-      {isUnLiked && <button onClick={onHandleLike}>Like</button>}
-      {isLiked && <button onClick={onHandleUnLike}>Unlike</button>}
+      {isUnRead && <button onClick={onHandleRead}>Read</button>}
+      {isRead && <button onClick={onHandleNotRead}>Not Read</button>}
 
       {error && <ErrorMessage msg={error} />}
     </>

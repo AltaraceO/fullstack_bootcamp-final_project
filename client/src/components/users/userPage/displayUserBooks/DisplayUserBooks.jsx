@@ -3,6 +3,7 @@ import { UserContext } from "../../../UserContext";
 import { BookComments } from "../bookComments/BookComments";
 import { BookLikes } from "../bookLikes/BookLikes";
 import { RemoveBook } from "../removeBook/RemoveBook";
+import { Read } from "../read/Read";
 
 export const DisplayUserBooks = ({ results }) => {
   const [currentUser] = useContext(UserContext)["user"];
@@ -27,10 +28,12 @@ export const DisplayUserBooks = ({ results }) => {
               <span>{book.authors[0]}</span>
               <br />
               <img src={book.thumb} alt="book-cover" />
+              {book.likes.length}
               <br />
               <span>{book.subtitle}</span>
               <RemoveBook book={book} func={bookRemovedReRender} />
               <BookLikes book={book} />
+              <Read book={book} />
               <BookComments book={book} user={currentUser} />
             </div>
           );

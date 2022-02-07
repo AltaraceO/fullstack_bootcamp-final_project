@@ -92,17 +92,10 @@ const checkBooks = async (req, res) => {
 const like = async (req, res) => {
   try {
     const book = await Books.findById(req.body._id);
-
-    // if (book.likes.includes(req.user._id)) {
-    //   return res.status(200).send("Unable to like the same book twice");
-    // }
-
     book.likes.push(req.user._id);
-
     const updatedBook = await Books.findByIdAndUpdate(req.body._id, book, {
       new: true,
     });
-
     res.send(updatedBook);
   } catch (err) {
     res.send(err.response);
@@ -115,13 +108,39 @@ const unlike = async (req, res) => {
     const lessUnLiked = book.likes.filter(
       (like) => like !== idStr.replace(/"/g, "")
     );
-
     book.likes = lessUnLiked;
-
     const updatedBook = await Books.findByIdAndUpdate(req.body._id, book, {
       new: true,
     });
+    res.send(updatedBook);
+  } catch (err) {
+    res.send(err.response);
+  }
+};
 
+const read = async (req, res) => {
+  try {
+    const book = await Books.findById(req.body._id);
+    book.read.push(req.user._id);
+    const updatedBook = await Books.findByIdAndUpdate(req.body._id, book, {
+      new: true,
+    });
+    res.send(updatedBook);
+  } catch (err) {
+    res.send(err.response);
+  }
+};
+const notRead = async (req, res) => {
+  try {
+    const book = await Books.findById(req.body._id);
+    const idStr = JSON.stringify(req.user._id);
+    const lessUnRead = book.read.filter(
+      (read) => read !== idStr.replace(/"/g, "")
+    );
+    book.read = lessUnRead;
+    const updatedBook = await Books.findByIdAndUpdate(req.body._id, book, {
+      new: true,
+    });
     res.send(updatedBook);
   } catch (err) {
     res.send(err.response);
@@ -136,4 +155,6 @@ module.exports = {
   checkBooks,
   like,
   unlike,
+  read,
+  notRead,
 };
