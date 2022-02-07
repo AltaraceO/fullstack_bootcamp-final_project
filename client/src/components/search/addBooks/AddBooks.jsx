@@ -13,11 +13,7 @@ export const AddBooks = ({ book }) => {
     };
     try {
       const addedBook = await url.post("/books", book);
-      const addToUser = await url.post(
-        "/users/addBook",
-        addedBook.data,
-        config
-      );
+      await url.post("/users/addBook", addedBook.data, config);
     } catch (err) {
       console.log("Error:", err.response.data);
     }

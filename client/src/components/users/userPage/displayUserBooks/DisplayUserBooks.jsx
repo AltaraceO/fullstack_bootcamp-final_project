@@ -10,7 +10,7 @@ export const DisplayUserBooks = ({ results }) => {
 
   useEffect(() => {
     setUserBooks(results);
-  }, []);
+  }, [results]);
 
   const bookRemovedReRender = (newBookList) => {
     setUserBooks(newBookList);
@@ -30,7 +30,7 @@ export const DisplayUserBooks = ({ results }) => {
               <br />
               <span>{book.subtitle}</span>
               <RemoveBook book={book} func={bookRemovedReRender} />
-              <BookLikes book={book} user={currentUser} />
+              <BookLikes book={book} />
               <BookComments book={book} user={currentUser} />
             </div>
           );

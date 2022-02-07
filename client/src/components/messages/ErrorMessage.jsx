@@ -8,7 +8,7 @@ export const ErrorMessage = ({ msg }) => {
     setTimeout(() => {
       setMessage("");
     }, 5000);
-  }, []);
+  }, [msg]);
   console.log(msg);
   return <>{message}</>;
 };

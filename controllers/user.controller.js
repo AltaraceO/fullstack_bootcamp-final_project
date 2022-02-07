@@ -76,10 +76,49 @@ const removeBook = async (req, res) => {
   }
 };
 
+const likeBook = async (req, res) => {
+  try {
+    const books = req.user.books.map((book) => {
+      if (book._id === req.body._id) {
+        book.like = true;
+      }
+      return book;
+    });
+
+    await Users.findByIdAndUpdate(req.user._id, {
+      $set: { books },
+    });
+    await req.user.save();
+    res.status(201).send(req.user);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+const unlikeBook = async (req, res) => {
+  try {
+    const books = req.user.books.map((book) => {
+      if (book._id === req.body._id) {
+        book.like = false;
+      }
+      return book;
+    });
+
+    await Users.findByIdAndUpdate(req.user._id, {
+      $set: { books },
+    });
+    req.user.save();
+    res.status(201).send(req.user);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+
 module.exports = {
   addUser,
   loginUser,
   logoutAll,
   addBook,
   removeBook,
+  likeBook,
+  unlikeBook,
 };

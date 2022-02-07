@@ -35,7 +35,7 @@ export const UserPage = () => {
     } else {
       getUserBooks();
     }
-  }, []);
+  }, [currentUser, history]);
 
   return (
     <>

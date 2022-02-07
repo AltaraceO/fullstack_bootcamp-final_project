@@ -26,5 +26,8 @@ router.post("/checkBooks", (req, res) => {
 router.post("/like", auth, (req, res) => {
   bookController.like(req, res);
 });
+router.post("/unlike", auth, (req, res) => {
+  bookController.unlike(req, res);
+});
 
 module.exports = router;
