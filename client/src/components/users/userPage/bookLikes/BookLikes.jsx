@@ -20,8 +20,9 @@ export const BookLikes = ({ book }) => {
     try {
       const { data } = await url.post("/books/unlike", book, config);
       const userUnLike = await url.post("/users/unLikeBook", book, config);
-      console.log("unlike", userUnLike.data);
-      console.log(data);
+      console.log(userUnLike.data);
+      console.log(currentUser);
+      setCurrentUser(userUnLike.data);
     } catch (err) {
       console.log(err.response);
     }
@@ -32,7 +33,8 @@ export const BookLikes = ({ book }) => {
       await url.post("/books/like", book, config);
       const userLike = await url.post("/users/likeBook", book, config);
 
-      console.log("like", userLike.data);
+      console.log("like", userLike.data, currentUser);
+      setCurrentUser(userLike.data);
     } catch (err) {
       console.log(err.response);
       // setError(err.response.data);
@@ -40,11 +42,13 @@ export const BookLikes = ({ book }) => {
   };
 
   useEffect(() => {
+    setIsLiked(false);
+    setIsUnLiked(false);
     const currentBook = currentUser.books.find((b) => b._id === book._id);
 
     console.log(currentBook?.like);
     currentBook?.like ? setIsLiked(true) : setIsUnLiked(true);
-  }, [book._id]);
+  }, [book._id, currentUser]);
 
   return (
     <>
