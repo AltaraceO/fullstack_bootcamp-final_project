@@ -20,7 +20,7 @@ const addBook = async (req, res) => {
 
 const getBooks = async (req, res) => {
   try {
-    const arr = req.user.books;
+    const arr = req.user.books.map((book) => book._id);
     const records = await Books.find({ _id: { $in: arr } });
     res.status(201).send(records);
   } catch (err) {

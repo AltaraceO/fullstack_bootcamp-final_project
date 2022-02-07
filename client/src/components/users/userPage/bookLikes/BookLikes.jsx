@@ -14,21 +14,21 @@ export const BookLikes = ({ book, user }) => {
   };
 
   const onHandleLike = async () => {
-    try {
-      const { data } = await url.post("/books/like", book, config);
-      console.log(data);
-    } catch (err) {
-      console.log(err.response);
-      setError(err.response.data);
-    }
+    console.log(user, book);
+    // try {
+    //   const { data } = await url.post("/books/like", book, config);
+    //   console.log(data);
+    // } catch (err) {
+    //   console.log(err.response);
+    //   setError(err.response.data);
+    // }
   };
 
-  // useEffect(() => {
-  //   const checkLike = async () => {
-  //     const { data } = await url.get("/books/checkLikes", book, config);
-  //     console.log("started");
-  //   };
-  // }, []);
+  useEffect(() => {
+    const currentBook = user.books.find((b) => b._id === book._id);
+
+    currentBook.like ? console.log("true") : console.log("false");
+  }, []);
 
   return (
     <>

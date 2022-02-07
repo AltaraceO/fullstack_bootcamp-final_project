@@ -12,14 +12,12 @@ export const AddBooks = ({ book }) => {
       },
     };
     try {
-      console.log(book);
       const addedBook = await url.post("/books", book);
       const addToUser = await url.post(
         "/users/addBook",
         addedBook.data,
         config
       );
-      console.log("New book added", addToUser);
     } catch (err) {
       console.log("Error:", err.response.data);
     }

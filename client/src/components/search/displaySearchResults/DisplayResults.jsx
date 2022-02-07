@@ -13,7 +13,6 @@ export const DisplayResults = ({ results }) => {
       const allBooks = await Promise.all(
         results.map(async (book) => {
           const bookCheck = await url.post("/books/checkBooks", book);
-          console.log(bookCheck.data);
           return bookCheck.data;
         })
       );

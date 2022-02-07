@@ -6,7 +6,6 @@ export const BookComments = ({ book, user }) => {
   const [comments, setComments] = useState("");
 
   const onHandleClick = async () => {
-    console.log("the comment is", comment, user, book);
     const config = {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -19,7 +18,6 @@ export const BookComments = ({ book, user }) => {
     };
     try {
       const { data } = await url.post("/books/comment", commentObj, config);
-      console.log(data);
       setComments(data.comments);
       setComment("");
     } catch (err) {

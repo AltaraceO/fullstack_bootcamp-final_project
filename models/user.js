@@ -43,7 +43,17 @@ const usersSchema = new mongoose.Schema({
   //Reference to the books that the user added to the list
   books: [
     {
-      type: String,
+      _id: String,
+      like: {
+        type: Boolean,
+        required: true,
+        default: false,
+      },
+      read: {
+        type: Boolean,
+        required: true,
+        default: false,
+      },
     },
   ],
   //this allows me to save any 'type' under genre

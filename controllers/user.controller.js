@@ -40,7 +40,7 @@ const addBook = async (req, res) => {
     if (req.user.books.includes(req.body._id)) {
       throw new Error("Your list already includes this book");
     }
-    req.user.books.push(req.body._id);
+    req.user.books.push({ _id: req.body._id });
 
     //repeated categories are counted for each user
     req.body.categories.forEach((cat) => {
@@ -64,7 +64,7 @@ const addBook = async (req, res) => {
 
 const removeBook = async (req, res) => {
   try {
-    const newList = req.user.books.filter((book) => book !== req.body._id);
+    const newList = req.user.books.filter((book) => book._id !== req.body._id);
 
     req.user.books = newList;
 
