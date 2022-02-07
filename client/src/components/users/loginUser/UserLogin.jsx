@@ -10,10 +10,19 @@ export const UserLogin = () => {
   });
   const [currentUser, setCurrentUser] = useContext(UserContext)["user"];
   const [message, setMessage] = useState("");
+  const [pwVisibility, setPwVisibility] = useState("password");
 
   const onHandleChange = (e) => {
     const { name, value } = e.target;
     setState((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  const onHandleChecked = () => {
+    if (pwVisibility === "password") {
+      setPwVisibility("text");
+    } else {
+      setPwVisibility("password");
+    }
   };
   const onHandleSubmit = async (e) => {
     e.preventDefault();
@@ -56,10 +65,11 @@ export const UserLogin = () => {
         <label htmlFor="password">Password</label>
         <input
           onChange={onHandleChange}
-          type="text"
+          type={pwVisibility}
           name="password"
           value={state.password}
         />
+        <input type="checkbox" onClick={onHandleChecked} />
         <br />
         <button onClick={onHandleSubmit}>Submit</button>
       </form>

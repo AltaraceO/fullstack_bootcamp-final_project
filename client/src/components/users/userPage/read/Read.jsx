@@ -9,6 +9,7 @@ export const Read = ({ book }) => {
   const [isRead, setIsRead] = useState(false);
   const [isUnRead, setIsUnRead] = useState(false);
   const [error, setError] = useState("");
+  const checkmark = "✔";
 
   const config = {
     headers: {
@@ -46,8 +47,10 @@ export const Read = ({ book }) => {
 
   return (
     <>
-      {isUnRead && <button onClick={onHandleRead}>Read</button>}
-      {isRead && <button onClick={onHandleNotRead}>Not Read</button>}
+      {isUnRead && (
+        <button onClick={onHandleRead}>Have you read this book?</button>
+      )}
+      {isRead && <button onClick={onHandleNotRead}>Read {checkmark} </button>}
 
       {error && <ErrorMessage msg={error} />}
     </>

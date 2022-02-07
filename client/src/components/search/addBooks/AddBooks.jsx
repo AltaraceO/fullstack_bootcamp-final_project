@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 import url from "../../../api/api";
 
 export const AddBooks = ({ book }) => {
-  //redirect if current user doesn't exist?(there will not be a button if current user isn't there)
+  const [buttonText, setButtonText] = useState("Add to my book list");
 
   const onHandleAddBook = async () => {
     const config = {
@@ -14,13 +14,14 @@ export const AddBooks = ({ book }) => {
     try {
       const addedBook = await url.post("/books", book);
       await url.post("/users/addBook", addedBook.data, config);
+      setButtonText("Book added");
     } catch (err) {
       console.log("Error:", err.response.data);
     }
   };
   return (
     <>
-      <button onClick={onHandleAddBook}>Add to my book list</button>
+      <button onClick={onHandleAddBook}>{buttonText}</button>
     </>
   );
 };

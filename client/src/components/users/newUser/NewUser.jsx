@@ -6,7 +6,16 @@ import { UserLogout } from "../logoutUser/UserLogout";
 export const NewUser = () => {
   const [state, setState] = useState({ name: "", email: "", password: "" });
   const [currentUser, setCurrentUser] = useContext(UserContext)["user"];
+  const [pwVisibility, setPwVisibility] = useState("password");
   const [message, setMessage] = useState("");
+
+  const onHandleChecked = () => {
+    if (pwVisibility === "password") {
+      setPwVisibility("text");
+    } else {
+      setPwVisibility("password");
+    }
+  };
 
   const onHandleChange = (e) => {
     const { name, value } = e.target;
@@ -51,7 +60,8 @@ export const NewUser = () => {
         <input onChange={onHandleChange} type="text" name="email" />
         <br />
         <label htmlFor="password">Password</label>
-        <input onChange={onHandleChange} type="text" name="password" />
+        <input onChange={onHandleChange} type={pwVisibility} name="password" />
+        <input type="checkbox" onClick={onHandleChecked} />
         <br />
         <button onClick={onHandleSubmit}>Submit</button>
       </form>
