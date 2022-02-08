@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { UserContext } from "../../UserContext";
 import url from "../../../api/api";
 import { UserLogout } from "../logoutUser/UserLogout";
+import "../registration/registration.css";
 
 export const UserLogin = () => {
   const [state, setState] = useState({
@@ -56,6 +57,7 @@ export const UserLogin = () => {
         <br />
         <label htmlFor="email">E-mail</label>
         <input
+          className="input"
           onChange={onHandleChange}
           type="text"
           name="email"
@@ -64,6 +66,7 @@ export const UserLogin = () => {
         <br />
         <label htmlFor="password">Password</label>
         <input
+          className="input"
           onChange={onHandleChange}
           type={pwVisibility}
           name="password"

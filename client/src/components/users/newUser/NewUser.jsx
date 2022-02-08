@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { UserContext } from "../../UserContext";
 import url from "../../../api/api";
 import { UserLogout } from "../logoutUser/UserLogout";
+import "../registration/registration.css";
 
 export const NewUser = () => {
   const [state, setState] = useState({ name: "", email: "", password: "" });
@@ -52,17 +53,34 @@ export const NewUser = () => {
   return (
     <>
       <form>
-        <br />
-        <label htmlFor="name">Name</label>
-        <input onChange={onHandleChange} type="text" name="name" />
-        <br />
+        {/* <label htmlFor="name">Name</label> */}
+        <input
+          placeholder="Name"
+          className="input"
+          onChange={onHandleChange}
+          type="text"
+          name="name"
+        />
+
         <label htmlFor="email">E-mail</label>
-        <input onChange={onHandleChange} type="text" name="email" />
-        <br />
+        <input
+          placeholder="Email"
+          className="input"
+          onChange={onHandleChange}
+          type="text"
+          name="email"
+        />
+
         <label htmlFor="password">Password</label>
-        <input onChange={onHandleChange} type={pwVisibility} name="password" />
+        <input
+          placeholder="Password"
+          className="input"
+          onChange={onHandleChange}
+          type={pwVisibility}
+          name="password"
+        />
         <input type="checkbox" onClick={onHandleChecked} />
-        <br />
+
         <button onClick={onHandleSubmit}>Submit</button>
       </form>
       {message && <span> {message} </span>}
