@@ -39,6 +39,9 @@ export const Read = ({ book }) => {
   };
 
   useEffect(() => {
+    if (!currentUser) {
+      return;
+    }
     setIsRead(false);
     setIsUnRead(false);
     const currentBook = currentUser.books.find((b) => b._id === book._id);

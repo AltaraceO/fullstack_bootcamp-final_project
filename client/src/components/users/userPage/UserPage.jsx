@@ -12,6 +12,9 @@ export const UserPage = () => {
   const history = useHistory();
 
   useEffect(() => {
+    if (!currentUser) {
+      history.push("/registration");
+    }
     const config = {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -31,7 +34,7 @@ export const UserPage = () => {
       }
     };
     if (!currentUser) {
-      history.push("/");
+      history.push("/registration");
     } else {
       getUserBooks();
     }

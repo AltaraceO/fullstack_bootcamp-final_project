@@ -1,21 +1,31 @@
 import React, { useContext } from "react";
 import { UserContext } from "../UserContext";
 import { Link } from "react-router-dom";
+import "./NavBar.css";
+import { UserLogout } from "../users/logoutUser/UserLogout";
 export const NavBar = () => {
   const [currentUser] = useContext(UserContext)["user"];
   return (
-    <>
-      <Link to="/"> Home </Link>
-      <span>|</span>
-      <Link to="/newUser"> New User </Link>
-      <span>|</span>
-      <Link to="/userLogin"> Login User </Link>
-      <span>|</span>
-      <Link to="/search-subject"> Search by Subject </Link>
-      <span>|</span>
-      <Link to="/search-book"> Book Search </Link>
-      <span>|</span>
-      {currentUser && <Link to="/user-page">Welcome {currentUser.name}</Link>}
-    </>
+    <div className="nav-bar">
+      <Link className="main-button" to="/">
+        Home
+      </Link>
+      {!currentUser && (
+        <Link className="main-button" to="/registration">
+          Login
+        </Link>
+      )}
+
+      {currentUser && (
+        <Link className="main-button main-button-user" to="/user-page">
+          Welcome {currentUser.name}
+        </Link>
+      )}
+      <Link className="main-button" to="/search-subject">
+        Search by Subject
+      </Link>
+
+      {currentUser && <UserLogout />}
+    </div>
   );
 };

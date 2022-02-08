@@ -38,6 +38,9 @@ export const BookLikes = ({ book }) => {
   };
 
   useEffect(() => {
+    if (!currentUser) {
+      return;
+    }
     setIsLiked(false);
     setIsUnLiked(false);
     const currentBook = currentUser.books.find((b) => b._id === book._id);
