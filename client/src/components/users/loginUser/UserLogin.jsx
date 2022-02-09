@@ -53,37 +53,41 @@ export const UserLogin = () => {
 
   return (
     <>
-      <form>
-        <br />
-        <label htmlFor="email">E-mail</label>
-        <input
-          className="input"
-          onChange={onHandleChange}
-          type="text"
-          name="email"
-          value={state.email}
-        />
-        <br />
-        <div className="input-icon-container">
+      <div className="outer-form-container">
+        <div className="reg-title">Or, login...</div>
+        <form className="form-container">
+          {/* <label htmlFor="email">E-mail</label> */}
           <input
-            placeholder="Password"
-            value={state.password}
+            className="input"
             onChange={onHandleChange}
-            type={pwVisibility}
-            name="password"
+            type="text"
+            name="email"
+            value={state.email}
           />
-          <i
-            className={
-              pwVisibility === "password" ? "fa fa-eye" : "fa fa-eye-slash"
-            }
-            onClick={onHandleChecked}
-          ></i>
-        </div>
-        <br />
-        <button className="reg-button" onClick={onHandleSubmit}>
-          Submit
-        </button>
-      </form>
+          <br />
+          <div className="pass-submit">
+            <div className="input-icon-container">
+              <input
+                placeholder="Password"
+                value={state.password}
+                onChange={onHandleChange}
+                type={pwVisibility}
+                name="password"
+              />
+              <i
+                className={
+                  pwVisibility === "password" ? "fa fa-eye" : "fa fa-eye-slash"
+                }
+                onClick={onHandleChecked}
+              ></i>
+            </div>
+            <br />
+            <button className="reg-button" onClick={onHandleSubmit}>
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
       {message && <span> {message} </span>}
       {currentUser && (
         <div>

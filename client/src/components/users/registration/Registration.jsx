@@ -17,9 +17,7 @@ export const Registration = () => {
 
   return (
     <div className="register-container">
-      Register -
       <NewUser />
-      Or, login
       <UserLogin />
     </div>
   );
