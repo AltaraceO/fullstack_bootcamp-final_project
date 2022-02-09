@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../../UserContext";
 import url from "../../../api/api";
-import { UserLogout } from "../logoutUser/UserLogout";
+// import { UserLogout } from "../logoutUser/UserLogout";
 import "../registration/registration.css";
 
 export const UserLogin = () => {
@@ -50,7 +50,7 @@ export const UserLogin = () => {
       }, 3000);
     }
   };
-
+  console.log(currentUser);
   return (
     <>
       <div className="outer-form-container">
@@ -82,19 +82,13 @@ export const UserLogin = () => {
               ></i>
             </div>
             <br />
-            <button className="reg-button" onClick={onHandleSubmit}>
-              Submit
+            <button className="submit-button" onClick={onHandleSubmit}>
+              Login
             </button>
           </div>
         </form>
       </div>
       {message && <span> {message} </span>}
-      {currentUser && (
-        <div>
-          <span>Welcome {currentUser.name}!</span>
-          <UserLogout />
-        </div>
-      )}
     </>
   );
 };

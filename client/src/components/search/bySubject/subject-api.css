@@ -45,10 +45,20 @@
   width: 150px;
   align-self: center;
   margin: 1rem;
+  border: 1px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-bottom-color: #cccccc;
+  border-right-color: #cccccc;
 }
 
 .search-book-card h3 {
   font-family: "MSbold-bold";
   font-weight: 800;
   font-size: 1rem;
+}
+
+.hour-glass {
+  width: 40px;
+  align-self: center;
 }

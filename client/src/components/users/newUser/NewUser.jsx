@@ -90,7 +90,7 @@ export const NewUser = () => {
                   onClick={onHandleChecked}
                 ></i>
               </div>
-              <button className="reg-button" onClick={onHandleSubmit}>
+              <button className="submit-button" onClick={onHandleSubmit}>
                 Submit
               </button>
             </div>

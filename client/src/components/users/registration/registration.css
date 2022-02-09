@@ -27,8 +27,10 @@
 }
 
 .reg-title {
+  font-family: "MSbold-bold";
   text-align: left;
   padding-left: 1rem;
+  color: #005e5e;
 }
 
 .input {
@@ -92,6 +94,34 @@
 }
 
 .reg-button:active {
+  border-top-color: #535353;
+  border-left-color: #535353;
+  border-right-color: #fcf7f2;
+  border-bottom-color: #fcf7f2;
+}
+.submit-button {
+  width: 30%;
+  white-space: nowrap;
+  text-align: center;
+  border: solid 2px;
+  border-top-color: #fcf7f2;
+  border-left-color: #fcf7f2;
+  border-right-color: #535353;
+  border-bottom-color: #535353;
+  border-radius: 2px;
+  padding: 4px 11px;
+  margin: 5px;
+  background: #f7dfd4;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.submit-button:hover {
+  background: #f2cab7;
+  color: #472d10;
+}
+
+.submit-button:active {
   border-top-color: #535353;
   border-left-color: #535353;
   border-right-color: #fcf7f2;

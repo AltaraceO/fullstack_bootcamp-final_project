@@ -3,12 +3,14 @@ import url from "../../../api/openLibApi";
 import googleUrl from "../../../api/googleApi";
 import { DisplayResults } from "../displaySearchResults/DisplayResults";
 import "./subject-api.css";
+import logo from "../../../spinner/hourGls.gif";
 
 export const SubjectApi = () => {
   const [cat, setCat] = useState("");
   const [bookRawInfo, setBookRawInfo] = useState([]);
   const [bookResults, setBookResults] = useState("");
-  const numberOfResults = 20;
+  const [spinner, setSpinner] = useState(false);
+  const numberOfResults = 60;
 
   const onHandleChange = (e) => {
     setCat(e.target.value);
@@ -18,6 +20,7 @@ export const SubjectApi = () => {
   const onHandleClick = async (e) => {
     e.preventDefault();
     setBookResults("");
+    setSpinner(true);
     const { data } = await url.get(
       `/subjects/${cat.trim()}.json?limit=${numberOfResults}`
     );
@@ -64,6 +67,7 @@ export const SubjectApi = () => {
   useEffect(() => {
     const getMoreBookRawInfo = async () => {
       const books = await makeBookObjects();
+      setSpinner(false);
       setBookResults(books.filter((b) => b !== undefined));
     };
 
@@ -88,6 +92,7 @@ export const SubjectApi = () => {
           Search
         </button>
       </form>
+      {spinner && <img className="hour-glass" src={logo} alt="hourGlass" />}
       {bookResults && <DisplayResults results={bookResults} />}
     </div>
   );
