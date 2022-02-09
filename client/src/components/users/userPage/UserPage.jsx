@@ -8,6 +8,7 @@ export const UserPage = () => {
   const [currentUser] = useContext(UserContext)["user"];
   const [bookData, setBookData] = useState("");
   const [genreData, setGenreData] = useState("");
+  // const [message, setMessage] = useState("");
 
   const history = useHistory();
 
@@ -42,7 +43,8 @@ export const UserPage = () => {
 
   return (
     <>
-      {genreData &&
+      {/* {message && <div>{message}</div>} */}
+      {genreData ? (
         genreData.map((g) => {
           return (
             <div key={g._id}>
@@ -50,8 +52,16 @@ export const UserPage = () => {
               <span> {((g.value / bookData.length) * 100).toFixed(2)}%</span>
             </div>
           );
-        })}
-      {bookData && <DisplayUserBooks results={bookData} />}
+        })
+      ) : (
+        <div>Add genre</div>
+      )}
+      {/* {bookData && <DisplayUserBooks results={bookData} />} */}
+      {bookData ? (
+        <DisplayUserBooks results={bookData} />
+      ) : (
+        <div>Add books by selecting search results.</div>
+      )}
     </>
   );
 };

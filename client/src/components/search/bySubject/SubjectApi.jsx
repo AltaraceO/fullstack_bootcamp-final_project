@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import url from "../../../api/openLibApi";
 import googleUrl from "../../../api/googleApi";
 import { DisplayResults } from "../displaySearchResults/DisplayResults";
+import "./subject-api.css";
 
 export const SubjectApi = () => {
   const [cat, setCat] = useState("");
@@ -72,14 +73,22 @@ export const SubjectApi = () => {
   }, [bookRawInfo, makeBookObjects]);
 
   return (
-    <>
-      <form>
+    <div className="search-container">
+      <form className="search-form-container">
         <label htmlFor="book"></label>
-        <input onChange={onHandleChange} type="text" name="book" value={cat} />
+        <input
+          className="input"
+          onChange={onHandleChange}
+          type="text"
+          name="book"
+          value={cat}
+        />
         <br />
-        <button onClick={onHandleClick}>Search</button>
+        <button className="reg-button" onClick={onHandleClick}>
+          Search
+        </button>
       </form>
       {bookResults && <DisplayResults results={bookResults} />}
-    </>
+    </div>
   );
 };

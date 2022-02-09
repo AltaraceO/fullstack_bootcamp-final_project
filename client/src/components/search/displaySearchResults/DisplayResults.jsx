@@ -3,6 +3,7 @@ import { UserContext } from "../../UserContext";
 import { AddBooks } from "../addBooks/AddBooks";
 import url from "../../../api/api";
 import { DisplayComments } from "../../comments/displayComments/DisplayComments";
+import "../bySubject/subject-api.css";
 
 export const DisplayResults = ({ results }) => {
   const [currentUser] = useContext(UserContext)["user"];
@@ -26,19 +27,15 @@ export const DisplayResults = ({ results }) => {
   }, [results]);
 
   return (
-    <>
+    <div className="results-main-container">
       {sortedBooks &&
         sortedBooks.map((book) => {
           return (
-            <div key={book.isbn_13}>
-              <hr />
-              <span>{book.title}</span>
-              <br />
-              <span>{book.authors[0]}</span>
-              <br />
+            <div className="search-book-card" key={book.isbn_13}>
+              <h3> {book.title.substring(0, 30)}</h3>
+              <h5>{book.authors[0]}</h5>
               <img src={book.thumb} alt="book-cover" />
-              <br />
-              <span>{book.subtitle}</span>
+              <h6>{book.subtitle}</h6>
               {book.comments?.length > 0 && (
                 <DisplayComments comments={book.comments} />
               )}
@@ -46,6 +43,6 @@ export const DisplayResults = ({ results }) => {
             </div>
           );
         })}
-    </>
+    </div>
   );
 };

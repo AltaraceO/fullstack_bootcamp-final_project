@@ -4,6 +4,12 @@
   font-family: "MSbold";
   src: local("MSbold"),
     url("../src/fonts/MS-Sans-Serif-8pt.woff") format("woff");
+  /* font-weight: bold; */
+}
+@font-face {
+  font-family: "MSbold-bold";
+  src: local("MSbold-bold"),
+    url("../src/fonts/MS-Sans-Serif-8pt-bold.woff") format("woff");
   font-weight: bold;
 }
 

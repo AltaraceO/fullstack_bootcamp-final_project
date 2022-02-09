@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-
 import url from "../../../api/api";
+import "../bySubject/subject-api.css";
 
 export const AddBooks = ({ book }) => {
   const [buttonText, setButtonText] = useState("Add to my book list");
@@ -21,7 +21,9 @@ export const AddBooks = ({ book }) => {
   };
   return (
     <>
-      <button onClick={onHandleAddBook}>{buttonText}</button>
+      <button className="reg-button" onClick={onHandleAddBook}>
+        {buttonText}
+      </button>
     </>
   );
 };
