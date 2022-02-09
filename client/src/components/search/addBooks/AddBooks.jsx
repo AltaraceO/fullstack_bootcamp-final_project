@@ -20,10 +20,10 @@ export const AddBooks = ({ book }) => {
     }
   };
   return (
-    <>
+    <div className="card-book-user-options">
       <button className="reg-button" onClick={onHandleAddBook}>
         {buttonText}
       </button>
-    </>
+    </div>
   );
 };

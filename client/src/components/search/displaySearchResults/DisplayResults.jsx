@@ -32,13 +32,16 @@ export const DisplayResults = ({ results }) => {
         sortedBooks.map((book) => {
           return (
             <div className="search-book-card" key={book.isbn_13}>
-              <h3> {book.title.substring(0, 30)}</h3>
-              <h5>{book.authors[0]}</h5>
-              <img src={book.thumb} alt="book-cover" />
-              <h6>{book.subtitle}</h6>
-              {book.comments?.length > 0 && (
-                <DisplayComments comments={book.comments} />
-              )}
+              <div className="card-book-info">
+                <h3> {book.title.substring(0, 30)}</h3>
+                <h5>{book.authors[0]}</h5>
+                <img src={book.thumb} alt="book-cover" />
+                <h6>{book.subtitle}</h6>
+                {book.comments?.length > 0 && (
+                  <DisplayComments comments={book.comments} />
+                )}
+              </div>
+
               {currentUser && <AddBooks book={book} />}
             </div>
           );
