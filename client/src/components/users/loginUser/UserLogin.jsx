@@ -64,17 +64,25 @@ export const UserLogin = () => {
           value={state.email}
         />
         <br />
-        <label htmlFor="password">Password</label>
-        <input
-          className="input"
-          onChange={onHandleChange}
-          type={pwVisibility}
-          name="password"
-          value={state.password}
-        />
-        <input type="checkbox" onClick={onHandleChecked} />
+        <div className="input-icon-container">
+          <input
+            placeholder="Password"
+            value={state.password}
+            onChange={onHandleChange}
+            type={pwVisibility}
+            name="password"
+          />
+          <i
+            className={
+              pwVisibility === "password" ? "fa fa-eye" : "fa fa-eye-slash"
+            }
+            onClick={onHandleChecked}
+          ></i>
+        </div>
         <br />
-        <button onClick={onHandleSubmit}>Submit</button>
+        <button className="reg-button" onClick={onHandleSubmit}>
+          Submit
+        </button>
       </form>
       {message && <span> {message} </span>}
       {currentUser && (

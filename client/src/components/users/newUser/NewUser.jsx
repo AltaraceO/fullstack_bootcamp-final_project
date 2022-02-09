@@ -53,35 +53,45 @@ export const NewUser = () => {
   return (
     <>
       <form>
-        {/* <label htmlFor="name">Name</label> */}
-        <input
-          placeholder="Name"
-          className="input"
-          onChange={onHandleChange}
-          type="text"
-          name="name"
-        />
+        <div>
+          {/* <label htmlFor="name">Name</label> */}
+          <input
+            placeholder="Name"
+            className="input"
+            onChange={onHandleChange}
+            type="text"
+            name="name"
+          />
 
-        <label htmlFor="email">E-mail</label>
-        <input
-          placeholder="Email"
-          className="input"
-          onChange={onHandleChange}
-          type="text"
-          name="email"
-        />
-
-        <label htmlFor="password">Password</label>
-        <input
-          placeholder="Password"
-          className="input"
-          onChange={onHandleChange}
-          type={pwVisibility}
-          name="password"
-        />
-        <input type="checkbox" onClick={onHandleChecked} />
-
-        <button onClick={onHandleSubmit}>Submit</button>
+          <label htmlFor="email">E-mail</label>
+          <input
+            placeholder="Email"
+            className="input"
+            onChange={onHandleChange}
+            type="text"
+            name="email"
+          />
+          <div className="pass-submit">
+            <label htmlFor="password">Password</label>
+            <div className="input-icon-container">
+              <input
+                placeholder="Password"
+                onChange={onHandleChange}
+                type={pwVisibility}
+                name="password"
+              />
+              <i
+                className={
+                  pwVisibility === "password" ? "fa fa-eye" : "fa fa-eye-slash"
+                }
+                onClick={onHandleChecked}
+              ></i>
+            </div>
+            <button className="reg-button" onClick={onHandleSubmit}>
+              Submit
+            </button>
+          </div>
+        </div>
       </form>
       {message && <span> {message} </span>}
       {currentUser && (
