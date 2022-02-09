@@ -4,6 +4,7 @@ body {
   word-spacing: 4px;
   background: #fcf7f2;
   /* background: #f6ffff; */
+  cursor: url(../cursor/smolArrow.png), auto;
 }
 
 .entire-site {
@@ -12,8 +13,12 @@ body {
   /* display: flex;
   align-items: center;
   justify-content: center; */
+  /* cursor: url(../cursor/arrow.png), auto; */
 }
-
+/* .App {
+  cursor: url("../cursor/hand.png"), auto;
+} */
 a {
   text-decoration: none;
+  cursor: url(../cursor/smolHand.png), pointer;
 }
