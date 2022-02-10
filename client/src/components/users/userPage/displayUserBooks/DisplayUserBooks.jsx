@@ -19,17 +19,17 @@ export const DisplayUserBooks = ({ func, results }) => {
     }
   };
 
-  // const sendIndividualBookDetail = (book) => {
-  //   func(book);
-  // };
+  const sendIndividualBookDetail = (book) => {
+    func(book);
+  };
 
   useEffect(() => {
     setUserBooks(results);
   }, [results]);
 
-  const bookRemovedReRender = (newBookList) => {
-    setUserBooks(newBookList);
-  };
+  // const bookRemovedReRender = (newBookList) => {
+  //   setUserBooks(newBookList);
+  // };
 
   console.log(currentUser);
   return (
@@ -45,7 +45,7 @@ export const DisplayUserBooks = ({ func, results }) => {
                 <div className="carousel-book" key={book.isbn_13}>
                   <img
                     className="small-thumb"
-                    // onClick={() => sendIndividualBookDetail(book)}
+                    onClick={() => sendIndividualBookDetail(book)}
                     src={book.small_thumb}
                     alt="book-cover"
                   />

@@ -18,6 +18,7 @@ export const UserPage = () => {
 
   const getBookDetails = (book) => {
     setIndividualBook(book);
+    console.log(individualBook);
   };
 
   const bookRemovedReRender = (newBookList) => {
