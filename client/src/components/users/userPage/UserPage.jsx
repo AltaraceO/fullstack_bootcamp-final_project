@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { UserContext } from "../../UserContext";
 import url from "../../../api/api";
 import { DisplayUserBooks } from "../userPage/displayUserBooks/DisplayUserBooks";
-// import { RegularMessage } from "../../messages/RegularMessage";
+import { RegularMessage } from "../../messages/RegularMessage";
 // import { BookDetails } from "./bookDetails/BookDetails";
 import "./user-page.css";
 
@@ -77,8 +77,7 @@ export const UserPage = () => {
           {bookData && bookData.length !== 0 ? (
             <DisplayUserBooks func={getBookDetails} results={bookData} />
           ) : (
-            <div>hi</div>
-            // <RegularMessage message={"Add books by selecting search results"} />
+            <RegularMessage message={"Add books by selecting search results"} />
           )}
         </div>
         {/* <div className="book-detail">
