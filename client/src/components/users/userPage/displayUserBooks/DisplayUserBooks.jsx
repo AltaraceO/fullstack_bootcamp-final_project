@@ -35,6 +35,7 @@ export const DisplayUserBooks = ({ func, results }) => {
   // const bookRemovedReRender = (newBookList) => {
   //   setUserBooks(newBookList);
   // };
+
   console.log(currentUser);
   return (
     <>
