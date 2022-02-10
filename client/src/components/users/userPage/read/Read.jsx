@@ -51,9 +51,15 @@ export const Read = ({ book }) => {
   return (
     <>
       {isUnRead && (
-        <button onClick={onHandleRead}>Have you read this book?</button>
+        <button className="reg-button" onClick={onHandleRead}>
+          Have you read this book?
+        </button>
       )}
-      {isRead && <button onClick={onHandleNotRead}>Read {checkmark} </button>}
+      {isRead && (
+        <button className="reg-button" onClick={onHandleNotRead}>
+          Read {checkmark}{" "}
+        </button>
+      )}
 
       {error && <ErrorMessage msg={error} />}
     </>

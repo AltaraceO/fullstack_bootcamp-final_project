@@ -49,8 +49,16 @@ export const BookLikes = ({ book }) => {
 
   return (
     <>
-      {isUnLiked && <button onClick={onHandleLike}>Like</button>}
-      {isLiked && <button onClick={onHandleUnLike}>Unlike</button>}
+      {isUnLiked && (
+        <button className="reg-button" onClick={onHandleLike}>
+          Like
+        </button>
+      )}
+      {isLiked && (
+        <button className="reg-button" onClick={onHandleUnLike}>
+          Unlike
+        </button>
+      )}
 
       {error && <ErrorMessage msg={error} />}
     </>

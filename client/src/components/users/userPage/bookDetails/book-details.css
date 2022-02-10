@@ -1,0 +1,55 @@
+.book-detail-display {
+  padding: 1rem;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #cccccc;
+  border-right: 2px solid #cccccc;
+}
+
+.comment-section {
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #cccccc;
+  border-right: 2px solid #cccccc;
+}
+
+.comment-section textarea {
+  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  border-top: 2px solid #cccccc;
+  border-left: 2px solid #cccccc;
+  margin: 1rem;
+}
+/* 
+.comment-section button{
+
+} */
+
+.remove-button {
+  white-space: nowrap;
+  text-align: center;
+  border: solid 2px;
+  border-top-color: #fcf7f2;
+  border-left-color: #fcf7f2;
+  border-right-color: #535353;
+  border-bottom-color: #535353;
+  border-radius: 2px;
+  padding: 4px 11px;
+  margin: 5px;
+  background: transparent;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  cursor: url(../../../../), pointer;
+}
+
+.remove-button:hover {
+  background: #fad9d9;
+  color: #472d10;
+}
+
+.remove-button:active {
+  border-top-color: #535353;
+  border-left-color: #535353;
+  border-right-color: #fcf7f2;
+  border-bottom-color: #fcf7f2;
+}

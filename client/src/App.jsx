@@ -12,20 +12,26 @@ import { Registration } from "./components/users/registration/Registration";
 
 function App() {
   return (
-    <div className="entire-site">
-      <Router>
-        <UserProvider>
-          <NavBar />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/registration" component={Registration} />
+    <div className="whole-page">
+      <div className="entire-site">
+        <Router>
+          <UserProvider>
+            <div className="full-div">
+              <NavBar />
+              <div className="under-nav">
+                <Switch>
+                  <Route exact path="/" component={Home} />
+                  <Route exact path="/registration" component={Registration} />
 
-            <Route exact path="/search-subject" component={SubjectApi} />
+                  <Route exact path="/search-subject" component={SubjectApi} />
 
-            <Route exact path="/user-page" component={UserPage} />
-          </Switch>
-        </UserProvider>
-      </Router>
+                  <Route exact path="/user-page" component={UserPage} />
+                </Switch>
+              </div>
+            </div>
+          </UserProvider>
+        </Router>
+      </div>
     </div>
   );
 }

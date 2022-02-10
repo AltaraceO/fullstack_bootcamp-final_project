@@ -14,12 +14,11 @@ export const DisplayUserBooks = ({ func, results }) => {
   const listRef = useRef(null);
 
   const scroll = (direction) => {
-    console.log("clicked");
     const d = direction;
     if (listRef.current) {
       listRef.current.scrollBy({
         top: 0,
-        left: d === "left" ? 200 : -200,
+        left: d === "left" ? -200 : 200,
         behavior: "smooth",
       });
     }
@@ -39,7 +38,9 @@ export const DisplayUserBooks = ({ func, results }) => {
   return (
     <>
       <div className="carousel-container">
-        <i onClick={() => scroll("left")}> L</i>
+        <div className="carousel-arrow" onClick={() => scroll("left")}>
+          {"<"}
+        </div>
         <div className="carousel" ref={listRef}>
           {userBooks &&
             userBooks.map((book) => {
@@ -62,7 +63,9 @@ export const DisplayUserBooks = ({ func, results }) => {
               );
             })}
         </div>
-        <i onClick={() => scroll("right")}> R</i>
+        <div className="carousel-arrow" onClick={() => scroll("right")}>
+          {">"}
+        </div>
       </div>
     </>
   );

@@ -40,12 +40,16 @@ export const BookComments = ({ book, user }) => {
             </div>
           );
         })}
-      <input
+      <textarea
+        rows="5"
+        cols="50"
         type="text"
         value={comment}
         onChange={(e) => setComment(e.target.value)}
       />
-      <button onClick={onHandleClick}>Comment</button>{" "}
+      <button className="reg-button" onClick={onHandleClick}>
+        Comment
+      </button>{" "}
     </>
   );
 };

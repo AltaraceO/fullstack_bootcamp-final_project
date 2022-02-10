@@ -7,13 +7,27 @@ body {
   /* cursor: url(../cursor/smolArrow.png), auto; */
 }
 
-.entire-site {
-  max-width: 1200px;
+.whole-page {
+  display: flex;
   text-align: center;
-  /* display: flex;
   align-items: center;
-  justify-content: center; */
-  /* cursor: url(../cursor/arrow.png), auto; */
+  justify-content: center;
+}
+
+.full-div {
+  width: 100%;
+}
+
+.entire-site {
+  width: 1200px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.under-nav {
+  margin: 20px;
+  max-width: 1200px;
 }
 :root {
   cursor: url(../cursor/smolArrow.png), auto;

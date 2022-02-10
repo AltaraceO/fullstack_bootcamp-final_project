@@ -1,5 +1,6 @@
 import React from "react";
 import url from "../../../../api/api";
+import "../bookDetails/book-details.css";
 
 export const RemoveBook = ({ book, func }) => {
   const config = {
@@ -14,7 +15,9 @@ export const RemoveBook = ({ book, func }) => {
   };
   return (
     <div>
-      <button onClick={onHandleRemove}>Remove Book</button>
+      <button className="remove-button" onClick={onHandleRemove}>
+        Remove Book
+      </button>
     </div>
   );
 };

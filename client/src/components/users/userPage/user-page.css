@@ -1,10 +1,11 @@
 .user-page {
   display: flex;
+  max-width: 100%;
 }
 
 .genre-bar {
   /* margin: 6px; */
-  width: 20vw;
+  width: 20%;
   border: solid 2px;
   border-top-color: #fcf7f2;
   border-left-color: #fcf7f2;
@@ -31,7 +32,7 @@
 }
 
 .books-n-details {
-  width: 80vw;
+  width: 80%;
   border: solid 2px;
   border-top-color: #fcf7f2;
   border-left-color: #fcf7f2;
@@ -44,5 +45,5 @@
 }
 
 .book-detail {
-  height: calc(100vh - 400px);
+  /* height: calc(100vh - 400px); */
 }

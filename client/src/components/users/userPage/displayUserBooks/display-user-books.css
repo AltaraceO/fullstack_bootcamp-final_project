@@ -1,6 +1,6 @@
 .carousel-container {
   display: flex;
-  width: 80vw;
+  width: 100%;
 }
 
 .carousel {
@@ -14,12 +14,28 @@
   display: none;
 }
 
-.carousel-container i {
-  width: 80px;
+.carousel-arrow {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7dfd4;
+  color: #472d10;
+  padding: 3px;
+  border: solid 2px;
+  border-top-color: #fcf7f2;
+  border-left-color: #fcf7f2;
+  border-right-color: #535353;
+  border-bottom-color: #535353;
+  cursor: url(../../../../cursor/smolHand.png), pointer;
+}
+
+.carousel-arrow:hover {
+  background: #f2cab7;
+  color: #472d10;
 }
 
 .carousel-book {
-  /* overflow-y: hidden; */
   padding: 4px 8px;
   border-top: 2px solid #ffffff;
   border-left: 2px solid #ffffff;
