@@ -5,6 +5,7 @@ import googleUrl from "../../../api/googleApi";
 import { DisplayResults } from "../displaySearchResults/DisplayResults";
 import "./subject-api.css";
 import logo from "../../../spinner/hourGls.gif";
+// import { use } from "express/lib/router";
 
 export const SubjectApi = () => {
   const [cat, setCat] = useState("");
@@ -19,6 +20,9 @@ export const SubjectApi = () => {
   };
 
   //get books by category
+  // useEffect(()=>{
+
+  // },[])
   const onHandleClick = async (e) => {
     e.preventDefault();
     setBookResults("");
@@ -69,6 +73,7 @@ export const SubjectApi = () => {
   }, [bookRawInfo]);
 
   useEffect(() => {
+    const abortCont = new AbortController();
     const getMoreBookRawInfo = async () => {
       const books = await makeBookObjects();
       setSpinner(false);
@@ -78,6 +83,8 @@ export const SubjectApi = () => {
     if (bookRawInfo.length) {
       getMoreBookRawInfo();
     }
+
+    return () => abortCont.abort();
   }, [bookRawInfo, makeBookObjects]);
 
   return (
