@@ -1,0 +1,48 @@
+.user-page {
+  display: flex;
+}
+
+.genre-bar {
+  /* margin: 6px; */
+  width: 20vw;
+  border: solid 2px;
+  border-top-color: #fcf7f2;
+  border-left-color: #fcf7f2;
+  border-right-color: #535353;
+  border-bottom-color: #535353;
+}
+
+.genre {
+  text-align: left;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #cccccc;
+  border-right: 2px solid #cccccc;
+}
+
+.genre p {
+  padding: 2px;
+  margin: 1px;
+  text-align: right;
+  font-size: 13px;
+  color: teal;
+}
+
+.books-n-details {
+  width: 80vw;
+  border: solid 2px;
+  border-top-color: #fcf7f2;
+  border-left-color: #fcf7f2;
+  border-right-color: #535353;
+  border-bottom-color: #535353;
+}
+
+.carousel {
+  height: 30vh;
+}
+
+.book-detail {
+  height: calc(100vh - 400px);
+}

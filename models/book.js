@@ -23,6 +23,10 @@ const booksSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  small_thumb: {
+    type: String,
+    required: true,
+  },
   url: String,
   comments: {
     type: [

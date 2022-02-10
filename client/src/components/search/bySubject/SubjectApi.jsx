@@ -56,6 +56,8 @@ export const SubjectApi = () => {
         if (!bookImg.data.items?.[0].volumeInfo.imageLinks) {
           return;
         }
+        bookObj.small_thumb =
+          bookImg.data.items[0].volumeInfo.imageLinks.smallThumbnail;
         bookObj.thumb = bookImg.data.items[0].volumeInfo.imageLinks.thumbnail;
         bookObj.subtitle = bookImg.data.items[0].volumeInfo.subtitle || "";
         return bookObj;

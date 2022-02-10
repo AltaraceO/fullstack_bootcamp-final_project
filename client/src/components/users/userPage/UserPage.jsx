@@ -5,6 +5,7 @@ import url from "../../../api/api";
 import { DisplayUserBooks } from "../userPage/displayUserBooks/DisplayUserBooks";
 import { RegularMessage } from "../../messages/RegularMessage";
 import { BookDetails } from "./bookDetails/BookDetails";
+import "./user-page.css";
 
 export const UserPage = () => {
   const [currentUser] = useContext(UserContext)["user"];
@@ -49,25 +50,34 @@ export const UserPage = () => {
   }, [currentUser, history]);
 
   return (
-    <>
-      {genreData ? (
-        genreData.map((g) => {
-          return (
-            <div key={g._id}>
-              <span>{g.genre} -</span>
-              <span> {((g.value / bookData.length) * 100).toFixed(2)}%</span>
-            </div>
-          );
-        })
-      ) : (
-        <div>Add genre</div>
-      )}
-      {bookData && bookData.length !== 0 ? (
-        <DisplayUserBooks func={getBookDetails} results={bookData} />
-      ) : (
-        <RegularMessage message={"Add books by selecting search results"} />
-      )}
-      {individualBook && <BookDetails details={individualBook} />}
-    </>
+    <div className="user-page">
+      <div className="genre-bar">
+        {genreData ? (
+          genreData.map((g) => {
+            return (
+              <div className="genre" key={g._id}>
+                <span>{g.genre}</span>
+                <p> {((g.value / bookData.length) * 100).toFixed(2)}%</p>
+              </div>
+            );
+          })
+        ) : (
+          <div>Add genre</div>
+        )}
+      </div>
+
+      <div className="books-n-details">
+        <div className="carousel">
+          {bookData && bookData.length !== 0 ? (
+            <DisplayUserBooks func={getBookDetails} results={bookData} />
+          ) : (
+            <RegularMessage message={"Add books by selecting search results"} />
+          )}
+        </div>
+        <div className="book-detail">
+          {individualBook && <BookDetails details={individualBook} />}
+        </div>
+      </div>
+    </div>
   );
 };

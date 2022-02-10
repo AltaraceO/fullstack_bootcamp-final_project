@@ -1,6 +1,36 @@
+.carousel-container {
+  display: flex;
+  width: 80vw;
+}
+
 .carousel {
   display: flex;
-  max-width: 600px;
-  height: 400px;
   overflow-y: hidden;
+  align-items: center;
+  gap: 40px;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-container i {
+  width: 80px;
+}
+
+.carousel-book {
+  /* overflow-y: hidden; */
+  padding: 4px 8px;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #cccccc;
+  border-right: 2px solid #cccccc;
+}
+
+.carousel-book span {
+  font-size: 10px;
+}
+
+.small-thumb {
+  width: 100px;
 }
