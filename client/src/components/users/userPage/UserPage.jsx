@@ -20,6 +20,11 @@ export const UserPage = () => {
     setIndividualBook(book);
   };
 
+  const bookRemovedReRender = (newBookList) => {
+    setBookData(newBookList);
+    setIndividualBook("");
+  };
+
   useEffect(() => {
     if (!currentUser) {
       history.push("/registration");
@@ -75,7 +80,9 @@ export const UserPage = () => {
           )}
         </div>
         <div className="book-detail">
-          {individualBook && <BookDetails details={individualBook} />}
+          {individualBook && (
+            <BookDetails func={bookRemovedReRender} details={individualBook} />
+          )}
         </div>
       </div>
     </div>

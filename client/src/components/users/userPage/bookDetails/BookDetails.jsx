@@ -6,7 +6,7 @@ import { RemoveBook } from "../removeBook/RemoveBook";
 import { Read } from "../read/Read";
 import "./book-details.css";
 
-export const BookDetails = ({ details }) => {
+export const BookDetails = ({ func, details }) => {
   const [currentUser] = useContext(UserContext)["user"];
   console.log(details);
   return (
@@ -18,7 +18,7 @@ export const BookDetails = ({ details }) => {
         <div className="comment-section">
           <BookComments book={details} user={currentUser} />
         </div>
-        <RemoveBook book={details} />
+        <RemoveBook func={func} book={details} />
         <BookLikes book={details} />
         <Read book={details} />
       </div>

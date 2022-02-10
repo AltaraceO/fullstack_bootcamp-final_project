@@ -1,22 +1,19 @@
 .user-page {
   display: flex;
-  max-width: 100%;
+  /* max-width: 100%; */
 }
 
 .genre-bar {
   /* margin: 6px; */
-  width: 20%;
-  border: solid 2px;
-  border-top-color: #fcf7f2;
-  border-left-color: #fcf7f2;
-  border-right-color: #535353;
-  border-bottom-color: #535353;
+  /* max-width: 20%; */
+  /* border: solid 2ps */
 }
 
 .genre {
   text-align: left;
   font-size: 15px;
   padding: 8px 10px;
+  margin-right: 3px;
   border-top: 2px solid #ffffff;
   border-left: 2px solid #ffffff;
   border-bottom: 2px solid #cccccc;
@@ -32,16 +29,16 @@
 }
 
 .books-n-details {
-  width: 80%;
-  border: solid 2px;
+  max-width: 80%;
+  /* border: solid 2px;
   border-top-color: #fcf7f2;
   border-left-color: #fcf7f2;
   border-right-color: #535353;
-  border-bottom-color: #535353;
+  border-bottom-color: #535353; */
 }
 
 .carousel {
-  height: 30vh;
+  /* height: 30vh; */
 }
 
 .book-detail {

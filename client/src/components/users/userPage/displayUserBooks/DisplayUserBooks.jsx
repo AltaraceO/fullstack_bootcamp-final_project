@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { UserContext } from "../../../UserContext";
-import { BookComments } from "../bookComments/BookComments";
-import { BookLikes } from "../bookLikes/BookLikes";
-import { RemoveBook } from "../removeBook/RemoveBook";
-import { Read } from "../read/Read";
+// import { BookComments } from "../bookComments/BookComments";
+// import { BookLikes } from "../bookLikes/BookLikes";
+// import { RemoveBook } from "../removeBook/RemoveBook";
+// import { Read } from "../read/Read";
 import "./display-user-books.css";
-import { LoggerLevel } from "mongoose/node_modules/mongodb";
+// import { LoggerLevel } from "mongoose/node_modules/mongodb";
 
 export const DisplayUserBooks = ({ func, results }) => {
   const [currentUser] = useContext(UserContext)["user"];
@@ -32,9 +32,10 @@ export const DisplayUserBooks = ({ func, results }) => {
     setUserBooks(results);
   }, [results]);
 
-  const bookRemovedReRender = (newBookList) => {
-    setUserBooks(newBookList);
-  };
+  // const bookRemovedReRender = (newBookList) => {
+  //   setUserBooks(newBookList);
+  // };
+  console.log(currentUser);
   return (
     <>
       <div className="carousel-container">
