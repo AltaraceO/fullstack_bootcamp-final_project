@@ -4,7 +4,7 @@ import "./display-user-books.css";
 
 export const DisplayUserBooks = ({ func, results }) => {
   const [currentUser] = useContext(UserContext)["user"];
-  // const [userBooks, setUserBooks] = useState("");
+  const [userBooks, setUserBooks] = useState("");
 
   const listRef = useRef(null);
 
@@ -45,7 +45,7 @@ export const DisplayUserBooks = ({ func, results }) => {
                 <div className="carousel-book" key={book.isbn_13}>
                   <img
                     className="small-thumb"
-                    onClick={() => sendIndividualBookDetail(book)}
+                    // onClick={() => sendIndividualBookDetail(book)}
                     src={book.small_thumb}
                     alt="book-cover"
                   />
