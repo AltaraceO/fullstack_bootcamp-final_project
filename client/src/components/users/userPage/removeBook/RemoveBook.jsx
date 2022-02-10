@@ -11,7 +11,7 @@ export const RemoveBook = ({ book, func }) => {
   const onHandleRemove = async () => {
     await url.post("/users/removeBook", book, config);
     const books = await url.get("/books/getBooks", config);
-    func(books.data);
+    // func(books.data);
   };
   return (
     <div>
