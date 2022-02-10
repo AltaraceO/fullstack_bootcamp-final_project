@@ -37,15 +37,15 @@ export const BookLikes = ({ book }) => {
     }
   };
 
-  useEffect(() => {
-    if (!currentUser) {
-      return;
-    }
-    setIsLiked(false);
-    setIsUnLiked(false);
-    const currentBook = currentUser.books.find((b) => b._id === book._id);
-    currentBook?.like ? setIsLiked(true) : setIsUnLiked(true);
-  }, [book._id, currentUser]);
+  // useEffect(() => {
+  //   if (!currentUser) {
+  //     return;
+  //   }
+  //   setIsLiked(false);
+  //   setIsUnLiked(false);
+  //   const currentBook = currentUser.books.find((b) => b._id === book._id);
+  //   currentBook?.like ? setIsLiked(true) : setIsUnLiked(true);
+  // }, [book._id, currentUser]);
 
   return (
     <>

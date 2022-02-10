@@ -1,15 +1,10 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { UserContext } from "../../../UserContext";
-// import { BookComments } from "../bookComments/BookComments";
-// import { BookLikes } from "../bookLikes/BookLikes";
-// import { RemoveBook } from "../removeBook/RemoveBook";
-// import { Read } from "../read/Read";
 import "./display-user-books.css";
-// import { LoggerLevel } from "mongoose/node_modules/mongodb";
 
 export const DisplayUserBooks = ({ func, results }) => {
   const [currentUser] = useContext(UserContext)["user"];
-  const [userBooks, setUserBooks] = useState("");
+  // const [userBooks, setUserBooks] = useState("");
 
   const listRef = useRef(null);
 
@@ -24,13 +19,13 @@ export const DisplayUserBooks = ({ func, results }) => {
     }
   };
 
-  const sendIndividualBookDetail = (book) => {
-    func(book);
-  };
+  // const sendIndividualBookDetail = (book) => {
+  //   func(book);
+  // };
 
-  useEffect(() => {
-    setUserBooks(results);
-  }, [results]);
+  // useEffect(() => {
+  //   setUserBooks(results);
+  // }, [results]);
 
   // const bookRemovedReRender = (newBookList) => {
   //   setUserBooks(newBookList);
@@ -43,7 +38,7 @@ export const DisplayUserBooks = ({ func, results }) => {
         <div className="carousel-arrow" onClick={() => scroll("left")}>
           {"<"}
         </div>
-        <div className="carousel" ref={listRef}>
+        {/* <div className="carousel" ref={listRef}>
           {userBooks &&
             userBooks.map((book) => {
               return (
@@ -55,16 +50,10 @@ export const DisplayUserBooks = ({ func, results }) => {
                     alt="book-cover"
                   />
                   <span>{book.title.substring(0, 30)}</span>
-                  {/* {book.likes.length} */}
-                  {/* <span>{book.subtitle}</span> */}
-                  {/* <RemoveBook book={book} func={bookRemovedReRender} /> */}
-                  {/* <BookLikes book={book} /> */}
-                  {/* <Read book={book} /> */}
-                  {/* <BookComments book={book} user={currentUser} /> */}
                 </div>
               );
             })}
-        </div>
+        </div> */}
         <div className="carousel-arrow" onClick={() => scroll("right")}>
           {">"}
         </div>
