@@ -23,13 +23,13 @@ export const DisplayUserBooks = ({ func, results }) => {
   //   func(book);
   // };
 
-  // useEffect(() => {
-  //   setUserBooks(results);
-  // }, [results]);
+  useEffect(() => {
+    setUserBooks(results);
+  }, [results]);
 
-  // const bookRemovedReRender = (newBookList) => {
-  //   setUserBooks(newBookList);
-  // };
+  const bookRemovedReRender = (newBookList) => {
+    setUserBooks(newBookList);
+  };
 
   console.log(currentUser);
   return (
@@ -38,7 +38,7 @@ export const DisplayUserBooks = ({ func, results }) => {
         <div className="carousel-arrow" onClick={() => scroll("left")}>
           {"<"}
         </div>
-        {/* <div className="carousel" ref={listRef}>
+        <div className="carousel" ref={listRef}>
           {userBooks &&
             userBooks.map((book) => {
               return (
@@ -53,7 +53,7 @@ export const DisplayUserBooks = ({ func, results }) => {
                 </div>
               );
             })}
-        </div> */}
+        </div>
         <div className="carousel-arrow" onClick={() => scroll("right")}>
           {">"}
         </div>
