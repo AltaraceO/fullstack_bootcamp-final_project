@@ -2,13 +2,13 @@ import React, { useContext } from "react";
 import { UserContext } from "../../../UserContext";
 // import { BookComments } from "../bookComments/BookComments";
 // import { BookLikes } from "../bookLikes/BookLikes";
-import { RemoveBook } from "../removeBook/RemoveBook";
+// import { RemoveBook } from "../removeBook/RemoveBook";
 // import { Read } from "../read/Read";
 import "./book-details.css";
 
 export const BookDetails = ({ func, details }) => {
   const [currentUser] = useContext(UserContext)["user"];
-  console.log(details);
+  console.log(currentUser);
   return (
     <div>
       <div className="book-detail-display">
@@ -18,7 +18,7 @@ export const BookDetails = ({ func, details }) => {
         {/* <div className="comment-section">
           <BookComments book={details} user={currentUser} />
         </div> */}
-        <RemoveBook func={func} book={details} />
+        {/* <RemoveBook func={func} book={details} /> */}
         {/* <BookLikes book={details} /> */}
         {/* <Read book={details} /> */}
       </div>
