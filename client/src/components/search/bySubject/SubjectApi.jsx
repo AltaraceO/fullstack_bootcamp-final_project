@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+// import { UserContext } from "../UserContext";
 import url from "../../../api/openLibApi";
 import googleUrl from "../../../api/googleApi";
 import { DisplayResults } from "../displaySearchResults/DisplayResults";
@@ -9,6 +10,7 @@ export const SubjectApi = () => {
   const [cat, setCat] = useState("");
   const [bookRawInfo, setBookRawInfo] = useState([]);
   const [bookResults, setBookResults] = useState("");
+  // const [currentUser] = useContext(UserContext)["user"];
   const [spinner, setSpinner] = useState(false);
   const numberOfResults = 60;
 
