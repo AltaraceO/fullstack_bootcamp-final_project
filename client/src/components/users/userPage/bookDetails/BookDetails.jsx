@@ -6,7 +6,8 @@ import { UserContext } from "../../../UserContext";
 // import { Read } from "../read/Read";
 import "./book-details.css";
 
-export const BookDetails = ({ func, details }) => {
+//took out the FUNK in the prop spread
+export const BookDetails = ({ details }) => {
   const [currentUser] = useContext(UserContext)["user"];
   console.log(currentUser);
   return (
@@ -14,7 +15,7 @@ export const BookDetails = ({ func, details }) => {
       <div className="book-detail-display">
         <h3>{details.title}</h3>
         <h5>{details.authors}</h5>
-        <img src={details.thumb} alt="cover" />
+        {/* <img src={details.thumb} alt="cover" /> */}
         {/* <div className="comment-section">
           <BookComments book={details} user={currentUser} />
         </div> */}

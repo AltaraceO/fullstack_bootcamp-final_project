@@ -21,10 +21,10 @@ export const UserPage = () => {
     console.log(individualBook);
   };
 
-  const bookRemovedReRender = (newBookList) => {
-    setBookData(newBookList);
-    setIndividualBook("");
-  };
+  // const bookRemovedReRender = (newBookList) => {
+  //   setBookData(newBookList);
+  //   setIndividualBook("");
+  // };
 
   useEffect(() => {
     if (!currentUser) {
@@ -82,7 +82,10 @@ export const UserPage = () => {
         </div>
         <div className="book-detail">
           {individualBook && (
-            <BookDetails func={bookRemovedReRender} details={individualBook} />
+            <BookDetails
+              // func={bookRemovedReRender}
+              details={individualBook}
+            />
           )}
         </div>
       </div>
