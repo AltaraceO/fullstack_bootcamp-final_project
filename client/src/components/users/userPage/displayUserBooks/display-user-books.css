@@ -1,0 +1,6 @@
+.carousel {
+  display: flex;
+  max-width: 600px;
+  height: 400px;
+  overflow-y: hidden;
+}

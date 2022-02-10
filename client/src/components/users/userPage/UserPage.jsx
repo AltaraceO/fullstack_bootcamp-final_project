@@ -3,14 +3,21 @@ import { useHistory } from "react-router-dom";
 import { UserContext } from "../../UserContext";
 import url from "../../../api/api";
 import { DisplayUserBooks } from "../userPage/displayUserBooks/DisplayUserBooks";
+import { RegularMessage } from "../../messages/RegularMessage";
+import { BookDetails } from "./bookDetails/BookDetails";
 
 export const UserPage = () => {
   const [currentUser] = useContext(UserContext)["user"];
   const [bookData, setBookData] = useState("");
   const [genreData, setGenreData] = useState("");
+  const [individualBook, setIndividualBook] = useState("");
   // const [message, setMessage] = useState("");
 
   const history = useHistory();
+
+  const getBookDetails = (book) => {
+    setIndividualBook(book);
+  };
 
   useEffect(() => {
     if (!currentUser) {
@@ -43,7 +50,6 @@ export const UserPage = () => {
 
   return (
     <>
-      {/* {message && <div>{message}</div>} */}
       {genreData ? (
         genreData.map((g) => {
           return (
@@ -56,12 +62,12 @@ export const UserPage = () => {
       ) : (
         <div>Add genre</div>
       )}
-      {/* {bookData && <DisplayUserBooks results={bookData} />} */}
-      {bookData ? (
-        <DisplayUserBooks results={bookData} />
+      {bookData && bookData.length !== 0 ? (
+        <DisplayUserBooks func={getBookDetails} results={bookData} />
       ) : (
-        <div>Add books by selecting search results.</div>
+        <RegularMessage message={"Add books by selecting search results"} />
       )}
+      {individualBook && <BookDetails details={individualBook} />}
     </>
   );
 };
