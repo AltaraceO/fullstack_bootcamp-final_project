@@ -89,11 +89,13 @@ export const UserPage = () => {
           )}
         </div>
 
-        {sendIndivBook ? (
+        <BookDetails details={{ title: "texting" }} />
+
+        {/* {sendIndivBook ? (
           <BookDetails details={{ title: "testing" }} />
         ) : (
           <div>error</div>
-        )}
+        )} */}
         {/* <div className="book-detail">
           {individualBook && (
             <BookDetails
