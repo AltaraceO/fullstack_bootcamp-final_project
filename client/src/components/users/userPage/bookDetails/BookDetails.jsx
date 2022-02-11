@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 // import React from "react";
 // import { UserContext } from "../../../UserContext";
 // import { BookComments } from "../bookComments/BookComments";
-// import { BookLikes } from "../bookLikes/BookLikes";
+import { BookLikes } from "../bookLikes/BookLikes";
 // import { RemoveBook } from "../removeBook/RemoveBook";
 import { Read } from "../read/Read";
 import "./book-details.css";
@@ -29,7 +29,7 @@ export const BookDetails = ({ details }) => {
       </div>
 
       {/* <RemoveBook func={func} book={details} /> */}
-      {/* <BookLikes book={details} /> */}
+      <BookLikes book={details} />
       <Read book={details} />
       {/* </div> */}
     </div>
