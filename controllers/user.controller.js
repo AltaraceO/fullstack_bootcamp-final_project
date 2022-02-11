@@ -146,11 +146,19 @@ const notReadBook = async (req, res) => {
 };
 
 const avatar = async (req, res) => {
-  // req.user.avatar = req.file.buffer;
-  // await req.user.save();
+  req.user.avatar = req.file.buffer;
+  await req.user.save();
   console.log(req.file.buffer);
   // console.log(req.user);
   res.send(req.user);
+};
+
+const getUser = async (req, res) => {
+  try {
+    res.status(201).send(req.user);
+  } catch (err) {
+    res.status(404).send(err);
+  }
 };
 
 module.exports = {
@@ -164,4 +172,5 @@ module.exports = {
   readBook,
   notReadBook,
   avatar,
+  getUser,
 };

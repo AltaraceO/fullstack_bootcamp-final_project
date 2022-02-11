@@ -60,4 +60,8 @@ router.post("/avatar", auth, upload.single("avatar"), (req, res) => {
   userController.avatar(req, res);
 });
 
+router.get("/getUser", auth, (req, res) => {
+  userController.getUser(req, res);
+});
+
 module.exports = router;

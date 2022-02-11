@@ -10,8 +10,8 @@ export const Upload = () => {
     };
     const data = new FormData();
     data.append("avatar", event.target.files[0]);
-    data.append("name", "some value user types");
-    data.append("description", "some value user types");
+    // data.append("name", "some value user types");
+    // data.append("description", "some value user types");
 
     url.post("users/avatar", data, config);
   };

@@ -3,6 +3,7 @@ import { UserContext } from "../UserContext";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 import { UserLogout } from "../users/logoutUser/UserLogout";
+import { Image } from "../users/image/Image";
 export const NavBar = () => {
   const [currentUser] = useContext(UserContext)["user"];
   return (
@@ -25,7 +26,12 @@ export const NavBar = () => {
         Search by Subject
       </Link>
 
-      {currentUser && <UserLogout />}
+      {currentUser && (
+        <>
+          <UserLogout />
+          <Image />
+        </>
+      )}
     </div>
   );
 };
