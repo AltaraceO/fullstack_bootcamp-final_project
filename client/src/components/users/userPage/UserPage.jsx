@@ -69,7 +69,9 @@ export const UserPage = () => {
     return (
       <div>
         items
-        <BookDetails />
+        <BookDetails // func={bookRemovedReRender}
+          details={sendIndivBook}
+        />
       </div>
     );
   };
