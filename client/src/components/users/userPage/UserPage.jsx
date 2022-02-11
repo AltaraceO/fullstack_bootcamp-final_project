@@ -83,7 +83,7 @@ export const UserPage = () => {
         {individualBook && (
           <div>
             <h3>{individualBook.title}</h3>
-            <h5>{individualBook.authors}</h5>
+            {/* <h5>{individualBook.authors?.[0]}</h5> */}
           </div>
         )}
         {/* {individualBook && individualBook.length !== 0 ? (
