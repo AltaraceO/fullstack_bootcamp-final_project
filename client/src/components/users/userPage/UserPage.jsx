@@ -4,7 +4,7 @@ import { UserContext } from "../../UserContext";
 import url from "../../../api/api";
 import { DisplayUserBooks } from "../userPage/displayUserBooks/DisplayUserBooks";
 import { RegularMessage } from "../../messages/RegularMessage";
-import { BookDetails } from "./bookDetails/BookDetails";
+// import { BookDetails } from "./bookDetails/BookDetails";
 import "./user-page.css";
 
 export const UserPage = () => {
@@ -80,14 +80,14 @@ export const UserPage = () => {
             <RegularMessage message={"Add books by selecting search results"} />
           )}
         </div>
-        <div className="book-detail">
+        {/* <div className="book-detail">
           {individualBook && (
             <BookDetails
               // func={bookRemovedReRender}
               details={individualBook}
             />
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );
