@@ -18,11 +18,11 @@ export const UserPage = () => {
 
   const history = useHistory();
 
-  const getBookDetails = (book) => {
-    setIndividualBook((prevState) => book);
-    // setIndividualBook(book);
-    console.log(individualBook);
-  };
+  // const getBookDetails = (book) => {
+  //   setIndividualBook((prevState) => book);
+  //   // setIndividualBook(book);
+  //   console.log(individualBook);
+  // };
 
   useEffect(() => {
     setSendIndivBook(individualBook);
@@ -80,18 +80,18 @@ export const UserPage = () => {
         )}
       </div>
 
-      <div>
-        <RemoveBook/>
-      </div>
-
-      {/* <div className="books-n-details">
-        <div className="carousel">
+      <div className="books-n-details">
+        {/* <div className="carousel">
           {bookData && bookData.length !== 0 ? (
             <DisplayUserBooks func={getBookDetails} results={bookData} />
           ) : (
             <RegularMessage message={"Add books by selecting search results"} />
           )}
         </div> */}
+
+        <div>
+          <RemoveBook />
+        </div>
 
         {/* {sendIndivBook ? (
           <BookDetails details={{ title: "testing" }} />
