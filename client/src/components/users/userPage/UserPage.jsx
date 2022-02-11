@@ -2,8 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../../UserContext";
 import url from "../../../api/api";
-import { DisplayUserBooks } from "../userPage/displayUserBooks/DisplayUserBooks";
-import { RegularMessage } from "../../messages/RegularMessage";
+// import { DisplayUserBooks } from "../userPage/displayUserBooks/DisplayUserBooks";
+// import { RegularMessage } from "../../messages/RegularMessage";
 import { RemoveBook } from "./removeBook/RemoveBook";
 // import { BookDetails } from "./bookDetails/BookDetails";
 import "./user-page.css";
@@ -81,17 +81,17 @@ export const UserPage = () => {
       </div>
 
       <div>
-        <RemoveBook />
+        <RemoveBook/>
       </div>
 
-      <div className="books-n-details">
+      {/* <div className="books-n-details">
         <div className="carousel">
           {bookData && bookData.length !== 0 ? (
             <DisplayUserBooks func={getBookDetails} results={bookData} />
           ) : (
             <RegularMessage message={"Add books by selecting search results"} />
           )}
-        </div>
+        </div> */}
 
         {/* {sendIndivBook ? (
           <BookDetails details={{ title: "testing" }} />
