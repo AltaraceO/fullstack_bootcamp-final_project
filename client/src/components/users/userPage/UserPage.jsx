@@ -4,7 +4,7 @@ import { UserContext } from "../../UserContext";
 import url from "../../../api/api";
 import { DisplayUserBooks } from "../userPage/displayUserBooks/DisplayUserBooks";
 import { RegularMessage } from "../../messages/RegularMessage";
-import { BookDetails } from "./bookDetails/BookDetails";
+// import { BookDetails } from "./bookDetails/BookDetails";
 import "./user-page.css";
 
 export const UserPage = () => {
@@ -78,9 +78,10 @@ export const UserPage = () => {
           <div>Add genre</div>
         )}
       </div>
-      <div>
+
+      {/* <div>
         <BookDetails />
-      </div>
+      </div> */}
 
       <div className="books-n-details">
         <div className="carousel">
