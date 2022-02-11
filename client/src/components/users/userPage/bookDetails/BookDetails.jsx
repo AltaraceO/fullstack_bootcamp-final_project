@@ -5,7 +5,7 @@ import React from "react";
 // import { BookLikes } from "../bookLikes/BookLikes";
 // import { RemoveBook } from "../removeBook/RemoveBook";
 // import { Read } from "../read/Read";
-// import "./book-details.css";
+import "./book-details.css";
 
 //took out the FUNK in the prop spread
 export const BookDetails = ({ details }) => {
