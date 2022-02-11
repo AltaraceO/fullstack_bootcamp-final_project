@@ -4,7 +4,6 @@ import { UserContext } from "../../UserContext";
 import url from "../../../api/api";
 import { DisplayUserBooks } from "../userPage/displayUserBooks/DisplayUserBooks";
 import { RegularMessage } from "../../messages/RegularMessage";
-// import { RemoveBook } from "./removeBook/RemoveBook";
 import { BookDetails } from "./bookDetails/BookDetails";
 import "./user-page.css";
 // import { Test } from "./test/Test";
@@ -31,10 +30,10 @@ export const UserPage = () => {
     console.log("indiv", sendIndivBook);
   }, [sendIndivBook, individualBook]);
 
-  // const bookRemovedReRender = (newBookList) => {
-  //   setBookData(newBookList);
-  //   setIndividualBook("");
-  // };
+  const bookRemovedReRender = (newBookList) => {
+    setBookData(newBookList);
+    setIndividualBook("");
+  };
 
   useEffect(() => {
     if (!currentUser) {
@@ -69,9 +68,7 @@ export const UserPage = () => {
     return (
       <div>
         {sendIndivBook && (
-          <BookDetails // func={bookRemovedReRender}
-            details={sendIndivBook}
-          />
+          <BookDetails func={bookRemovedReRender} details={sendIndivBook} />
         )}
       </div>
     );
