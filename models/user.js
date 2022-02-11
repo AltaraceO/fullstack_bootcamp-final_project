@@ -63,6 +63,9 @@ const usersSchema = new mongoose.Schema({
       value: Number,
     },
   ],
+  avatar: {
+    type: Buffer,
+  },
 });
 
 //when signing up or logging in this will create a fresh token to save in client's local storage

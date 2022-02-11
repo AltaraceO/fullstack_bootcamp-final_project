@@ -145,6 +145,14 @@ const notReadBook = async (req, res) => {
   }
 };
 
+const avatar = async (req, res) => {
+  // req.user.avatar = req.file.buffer;
+  // await req.user.save();
+  console.log(req.file.buffer);
+  // console.log(req.user);
+  res.send(req.user);
+};
+
 module.exports = {
   addUser,
   loginUser,
@@ -155,4 +163,5 @@ module.exports = {
   unlikeBook,
   readBook,
   notReadBook,
+  avatar,
 };
