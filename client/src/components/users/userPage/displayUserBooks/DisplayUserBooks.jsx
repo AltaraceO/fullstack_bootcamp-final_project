@@ -31,7 +31,6 @@ export const DisplayUserBooks = ({ func, results }) => {
   //   setUserBooks(newBookList);
   // };
 
-  console.log(currentUser);
   return (
     <>
       <div className="carousel-container">

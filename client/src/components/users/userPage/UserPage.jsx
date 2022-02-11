@@ -6,28 +6,22 @@ import { DisplayUserBooks } from "../userPage/displayUserBooks/DisplayUserBooks"
 import { RegularMessage } from "../../messages/RegularMessage";
 import { BookDetails } from "./bookDetails/BookDetails";
 import "./user-page.css";
-// import { Test } from "./test/Test";
 
 export const UserPage = () => {
   const [currentUser] = useContext(UserContext)["user"];
   const [bookData, setBookData] = useState("");
   const [genreData, setGenreData] = useState("");
   const [individualBook, setIndividualBook] = useState("");
-  // const [individualBook] = useState("");
   const [sendIndivBook, setSendIndivBook] = useState("");
-  // const [message, setMessage] = useState("");
 
   const history = useHistory();
 
   const getBookDetails = (book) => {
     setIndividualBook((prevState) => book);
-    // setIndividualBook(book);
-    console.log(individualBook);
   };
 
   useEffect(() => {
     setSendIndivBook(individualBook);
-    console.log("indiv", sendIndivBook);
   }, [sendIndivBook, individualBook]);
 
   const bookRemovedReRender = (newBookList) => {
@@ -99,22 +93,7 @@ export const UserPage = () => {
             <RegularMessage message={"Add books by selecting search results"} />
           )}
         </div>
-
         {render()}
-
-        {/* {sendIndivBook ? (
-          <BookDetails details={{ title: "testing" }} />
-        ) : (
-          <div>error</div>
-        )} */}
-        {/* <div className="book-detail">
-          {individualBook && (
-            <BookDetails
-              // func={bookRemovedReRender}
-              details={individualBook}
-            />
-          )}
-        </div> */}
       </div>
     </div>
   );

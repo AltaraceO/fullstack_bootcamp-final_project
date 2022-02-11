@@ -37,6 +37,7 @@ export const DisplayResults = ({ results }) => {
                 <h5>{book.authors[0]}</h5>
                 <img src={book.thumb} alt="book-cover" />
                 <h6>{book.subtitle}</h6>
+                {book.likes?.length > 0 && <h6>{book.likes?.length} 👍</h6>}
                 {book.comments?.length > 0 && (
                   <DisplayComments comments={book.comments} />
                 )}

@@ -9,7 +9,6 @@ import "./book-details.css";
 export const BookDetails = ({ func, details }) => {
   const [currentUser] = useContext(UserContext)["user"];
   const [bookInfo, setBookInfo] = useState("");
-  // console.log(currentUser);
 
   useEffect(() => {
     setBookInfo(details);
