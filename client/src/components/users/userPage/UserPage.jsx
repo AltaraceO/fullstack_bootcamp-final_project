@@ -7,6 +7,7 @@ import { RegularMessage } from "../../messages/RegularMessage";
 // import { RemoveBook } from "./removeBook/RemoveBook";
 // import { BookDetails } from "./bookDetails/BookDetails";
 import "./user-page.css";
+import { Test } from "./test/Test";
 
 export const UserPage = () => {
   const [currentUser] = useContext(UserContext)["user"];
@@ -68,7 +69,7 @@ export const UserPage = () => {
     return (
       <div>
         items
-        {/* <RemoveBook /> */}
+        <Test />
       </div>
     );
   };
