@@ -80,15 +80,22 @@ export const UserPage = () => {
             <RegularMessage message={"Add books by selecting search results"} />
           )}
         </div>
-        {console.log(individualBook)}
         {individualBook && (
+          <div>
+            <h3>{individualBook.title}</h3>
+            <h5>{individualBook.authors}</h5>
+          </div>
+        )}
+        {/* {individualBook && individualBook.length !== 0 ? (
           <div>
             <BookDetails
               // func={bookRemovedReRender}
               details={individualBook}
             />
           </div>
-        )}
+        ) : (
+          <div>error</div>
+        )} */}
         {/* <div className="book-detail">
           {individualBook && (
             <BookDetails
