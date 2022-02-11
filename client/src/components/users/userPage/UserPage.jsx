@@ -90,7 +90,7 @@ export const UserPage = () => {
         </div>
 
         {sendIndivBook ? (
-          <BookDetails details={sendIndivBook} />
+          <BookDetails details={{ title: "testing" }} />
         ) : (
           <div>error</div>
         )}
