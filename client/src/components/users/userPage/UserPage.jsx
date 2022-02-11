@@ -69,7 +69,6 @@ export const UserPage = () => {
           genreData.map((g) => {
             return (
               <div className="genre" key={g._id}>
-                <BookDetails />
                 <span>{g.genre}</span>
                 <p> {((g.value / bookData.length) * 100).toFixed(2)}%</p>
               </div>
@@ -78,6 +77,9 @@ export const UserPage = () => {
         ) : (
           <div>Add genre</div>
         )}
+      </div>
+      <div>
+        <BookDetails />
       </div>
 
       <div className="books-n-details">
