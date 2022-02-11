@@ -6,7 +6,6 @@ import { DisplayUserBooks } from "../userPage/displayUserBooks/DisplayUserBooks"
 import { RegularMessage } from "../../messages/RegularMessage";
 import { BookDetails } from "./bookDetails/BookDetails";
 import "./user-page.css";
-// import { use } from "express/lib/router";
 
 export const UserPage = () => {
   const [currentUser] = useContext(UserContext)["user"];
@@ -89,7 +88,7 @@ export const UserPage = () => {
           )}
         </div>
 
-        <BookDetails details={{ title: "texting" }} />
+        <BookDetails />
 
         {/* {sendIndivBook ? (
           <BookDetails details={{ title: "testing" }} />
