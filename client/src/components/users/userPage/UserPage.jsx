@@ -12,7 +12,8 @@ export const UserPage = () => {
   const [currentUser] = useContext(UserContext)["user"];
   const [bookData, setBookData] = useState("");
   const [genreData, setGenreData] = useState("");
-  const [individualBook, setIndividualBook] = useState("");
+  // const [individualBook, setIndividualBook] = useState("");
+  const [individualBook] = useState("");
   const [sendIndivBook, setSendIndivBook] = useState("");
   // const [message, setMessage] = useState("");
 
@@ -65,6 +66,7 @@ export const UserPage = () => {
 
   return (
     <div className="user-page">
+      <RemoveBook />
       <div className="genre-bar">
         {genreData ? (
           genreData.map((g) => {
@@ -88,10 +90,6 @@ export const UserPage = () => {
             <RegularMessage message={"Add books by selecting search results"} />
           )}
         </div> */}
-
-        <div>
-          <RemoveBook />
-        </div>
 
         {/* {sendIndivBook ? (
           <BookDetails details={{ title: "testing" }} />
