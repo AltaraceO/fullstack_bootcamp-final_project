@@ -19,16 +19,15 @@ export const BookDetails = ({ details }) => {
 
   return (
     <div>
-      BookDetaiills
-      {/* {bookInfo && <div>{bookInfo.title}</div>} */}
-      <div>{bookInfo.title}</div>
-      {/* <div className="book-detail-display">
+      <div className="book-detail-display">
         <h3>{bookInfo.title}</h3>
-        {/* <h5>{bookInfo.authors}</h5> */}
-      {/* <img src={details.thumb} alt="cover" /> */}
-      {/* <div className="comment-section">
+        <h5>{bookInfo.authors}</h5>
+        <img src={bookInfo.thumb} alt="cover" />
+        {/* <div className="comment-section">
           <BookComments book={details} user={currentUser} />
         </div> */}
+      </div>
+
       {/* <RemoveBook func={func} book={details} /> */}
       {/* <BookLikes book={details} /> */}
       {/* <Read book={details} /> */}
