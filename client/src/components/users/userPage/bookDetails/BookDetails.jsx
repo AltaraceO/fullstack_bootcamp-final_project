@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 // import { BookComments } from "../bookComments/BookComments";
 // import { BookLikes } from "../bookLikes/BookLikes";
 // import { RemoveBook } from "../removeBook/RemoveBook";
-// import { Read } from "../read/Read";
+import { Read } from "../read/Read";
 import "./book-details.css";
 
 //took out the FUNK in the prop spread
@@ -30,7 +30,7 @@ export const BookDetails = ({ details }) => {
 
       {/* <RemoveBook func={func} book={details} /> */}
       {/* <BookLikes book={details} /> */}
-      {/* <Read book={details} /> */}
+      <Read book={details} />
       {/* </div> */}
     </div>
   );
