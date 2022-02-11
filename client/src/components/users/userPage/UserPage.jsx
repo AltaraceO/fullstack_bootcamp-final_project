@@ -68,10 +68,11 @@ export const UserPage = () => {
   const render = () => {
     return (
       <div>
-        items
-        <BookDetails // func={bookRemovedReRender}
-          details={sendIndivBook}
-        />
+        {sendIndivBook && (
+          <BookDetails // func={bookRemovedReRender}
+            details={sendIndivBook}
+          />
+        )}
       </div>
     );
   };
