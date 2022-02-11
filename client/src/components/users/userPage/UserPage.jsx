@@ -4,7 +4,7 @@ import { UserContext } from "../../UserContext";
 import url from "../../../api/api";
 import { DisplayUserBooks } from "../userPage/displayUserBooks/DisplayUserBooks";
 import { RegularMessage } from "../../messages/RegularMessage";
-// import { BookDetails } from "./bookDetails/BookDetails";
+import { BookDetails } from "./bookDetails/BookDetails";
 import "./user-page.css";
 // import { use } from "express/lib/router";
 
@@ -89,7 +89,16 @@ export const UserPage = () => {
           )}
         </div>
 
-        {sendIndivBook ? <div>{sendIndivBook.title}</div> : <div>error</div>}
+        {sendIndivBook ? (
+          <div>
+            <BookDetails
+              // func={bookRemovedReRender}
+              details={individualBook}
+            />
+          </div>
+        ) : (
+          <div>error</div>
+        )}
         {/* <div className="book-detail">
           {individualBook && (
             <BookDetails
