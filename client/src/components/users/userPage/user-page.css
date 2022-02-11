@@ -44,3 +44,32 @@
 .book-detail {
   /* height: calc(100vh - 400px); */
 }
+
+.green-button {
+  white-space: nowrap;
+  text-align: center;
+  border: solid 2px;
+  border-top-color: #fcf7f2;
+  border-left-color: #fcf7f2;
+  border-right-color: #535353;
+  border-bottom-color: #535353;
+  border-radius: 2px;
+  padding: 4px 11px;
+  margin: 5px;
+  background: #def1de;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  cursor: url(../../../cursor/smolHand.png), pointer;
+}
+
+.green-button:hover {
+  background: #c6e7c6;
+  color: #472d10;
+}
+
+.green-button:active {
+  border-top-color: #535353;
+  border-left-color: #535353;
+  border-right-color: #fcf7f2;
+  border-bottom-color: #fcf7f2;
+}

@@ -28,6 +28,10 @@ export const UserPage = () => {
     setBookData(newBookList);
     setIndividualBook("");
   };
+  const bookLike = (newBookList) => {
+    setBookData(newBookList);
+    // setIndividualBook("");
+  };
 
   useEffect(() => {
     if (!currentUser) {
@@ -62,7 +66,11 @@ export const UserPage = () => {
     return (
       <div>
         {sendIndivBook && (
-          <BookDetails func={bookRemovedReRender} details={sendIndivBook} />
+          <BookDetails
+            likeFunc={bookLike}
+            func={bookRemovedReRender}
+            details={sendIndivBook}
+          />
         )}
       </div>
     );

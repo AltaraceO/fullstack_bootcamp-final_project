@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "../../../UserContext";
 import url from "../../../../api/api";
 import { ErrorMessage } from "../../../messages/ErrorMessage";
+import "../user-page.css";
 
 export const Read = ({ book }) => {
   const [currentUser, setCurrentUser] = useContext(UserContext)["user"];
@@ -51,11 +52,11 @@ export const Read = ({ book }) => {
     <>
       {isUnRead && (
         <button className="reg-button" onClick={onHandleRead}>
-          Have you read this book?
+          Read it?
         </button>
       )}
       {isRead && (
-        <button className="reg-button" onClick={onHandleNotRead}>
+        <button className="green-button" onClick={onHandleNotRead}>
           Read {checkmark}{" "}
         </button>
       )}

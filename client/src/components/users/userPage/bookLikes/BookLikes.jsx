@@ -4,7 +4,7 @@ import { UserContext } from "../../../UserContext";
 import url from "../../../../api/api";
 import { ErrorMessage } from "../../../messages/ErrorMessage";
 
-export const BookLikes = ({ book }) => {
+export const BookLikes = ({ likeFunc, book }) => {
   const [currentUser, setCurrentUser] = useContext(UserContext)["user"];
   const [isLiked, setIsLiked] = useState(false);
   const [isUnLiked, setIsUnLiked] = useState(false);
@@ -21,6 +21,7 @@ export const BookLikes = ({ book }) => {
       await url.post("/books/unlike", book, config);
       const userUnLike = await url.post("/users/unLikeBook", book, config);
       setCurrentUser(userUnLike.data);
+      book.likes.pop();
     } catch (err) {
       console.log(err.response);
     }
@@ -31,6 +32,7 @@ export const BookLikes = ({ book }) => {
       await url.post("/books/like", book, config);
       const userLike = await url.post("/users/likeBook", book, config);
       setCurrentUser(userLike.data);
+      book.likes.push(1);
     } catch (err) {
       console.log(err.response);
       setError(err.response.data);
