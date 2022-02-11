@@ -80,6 +80,8 @@ export const UserPage = () => {
             <RegularMessage message={"Add books by selecting search results"} />
           )}
         </div>
+        {console.log(individualBook)}
+        {individualBook && <span>yes</span>}
         {/* <div className="book-detail">
           {individualBook && (
             <BookDetails
