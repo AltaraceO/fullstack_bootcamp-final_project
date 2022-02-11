@@ -20,7 +20,8 @@ export const BookDetails = ({ details }) => {
   return (
     <div>
       BookDetaiills
-      {bookInfo && <div>{bookInfo.title}</div>}
+      {/* {bookInfo && <div>{bookInfo.title}</div>} */}
+      <div>{bookInfo.title}</div>
       {/* <div className="book-detail-display">
         <h3>{bookInfo.title}</h3>
         {/* <h5>{bookInfo.authors}</h5> */}
