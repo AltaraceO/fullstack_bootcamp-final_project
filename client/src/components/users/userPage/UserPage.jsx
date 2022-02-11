@@ -2,9 +2,9 @@ import React, { useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../../UserContext";
 import url from "../../../api/api";
-// import { DisplayUserBooks } from "../userPage/displayUserBooks/DisplayUserBooks";
-// import { RegularMessage } from "../../messages/RegularMessage";
-import { RemoveBook } from "./removeBook/RemoveBook";
+import { DisplayUserBooks } from "../userPage/displayUserBooks/DisplayUserBooks";
+import { RegularMessage } from "../../messages/RegularMessage";
+// import { RemoveBook } from "./removeBook/RemoveBook";
 // import { BookDetails } from "./bookDetails/BookDetails";
 import "./user-page.css";
 
@@ -12,18 +12,18 @@ export const UserPage = () => {
   const [currentUser] = useContext(UserContext)["user"];
   const [bookData, setBookData] = useState("");
   const [genreData, setGenreData] = useState("");
-  // const [individualBook, setIndividualBook] = useState("");
-  const [individualBook] = useState("");
+  const [individualBook, setIndividualBook] = useState("");
+  // const [individualBook] = useState("");
   const [sendIndivBook, setSendIndivBook] = useState("");
   // const [message, setMessage] = useState("");
 
   const history = useHistory();
 
-  // const getBookDetails = (book) => {
-  //   setIndividualBook((prevState) => book);
-  //   // setIndividualBook(book);
-  //   console.log(individualBook);
-  // };
+  const getBookDetails = (book) => {
+    setIndividualBook((prevState) => book);
+    // setIndividualBook(book);
+    console.log(individualBook);
+  };
 
   useEffect(() => {
     setSendIndivBook(individualBook);
@@ -64,9 +64,17 @@ export const UserPage = () => {
     }
   }, [currentUser, history]);
 
+  const render = () => {
+    return (
+      <div>
+        items
+        {/* <RemoveBook /> */}
+      </div>
+    );
+  };
+
   return (
     <div className="user-page">
-      <RemoveBook />
       <div className="genre-bar">
         {genreData ? (
           genreData.map((g) => {
@@ -83,13 +91,15 @@ export const UserPage = () => {
       </div>
 
       <div className="books-n-details">
-        {/* <div className="carousel">
+        <div className="carousel">
           {bookData && bookData.length !== 0 ? (
             <DisplayUserBooks func={getBookDetails} results={bookData} />
           ) : (
             <RegularMessage message={"Add books by selecting search results"} />
           )}
-        </div> */}
+        </div>
+
+        {render()}
 
         {/* {sendIndivBook ? (
           <BookDetails details={{ title: "testing" }} />
