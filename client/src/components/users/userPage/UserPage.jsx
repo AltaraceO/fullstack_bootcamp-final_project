@@ -4,8 +4,9 @@ import { UserContext } from "../../UserContext";
 import url from "../../../api/api";
 import { DisplayUserBooks } from "../userPage/displayUserBooks/DisplayUserBooks";
 import { RegularMessage } from "../../messages/RegularMessage";
-import { BookDetails } from "./bookDetails/BookDetails";
+// import { BookDetails } from "./bookDetails/BookDetails";
 import "./user-page.css";
+// import { use } from "express/lib/router";
 
 export const UserPage = () => {
   const [currentUser] = useContext(UserContext)["user"];
@@ -19,6 +20,7 @@ export const UserPage = () => {
 
   const getBookDetails = (book) => {
     setIndividualBook((prevState) => book);
+    // setIndividualBook(book);
     console.log(individualBook);
   };
 
@@ -87,16 +89,15 @@ export const UserPage = () => {
           )}
         </div>
 
-        {sendIndivBook ? (
-          <div className="book-detail">
+        {sendIndivBook ? <div>{sendIndivBook.title}</div> : <div>error</div>}
+        {/* <div className="book-detail">
+          {individualBook && (
             <BookDetails
               // func={bookRemovedReRender}
-              details={sendIndivBook}
+              details={individualBook}
             />
-          </div>
-        ) : (
-          <div>error</div>
-        )}
+          )}
+        </div> */}
       </div>
     </div>
   );
