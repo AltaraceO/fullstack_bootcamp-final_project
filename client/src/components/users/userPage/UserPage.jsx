@@ -4,22 +4,30 @@ import { UserContext } from "../../UserContext";
 import url from "../../../api/api";
 import { DisplayUserBooks } from "../userPage/displayUserBooks/DisplayUserBooks";
 import { RegularMessage } from "../../messages/RegularMessage";
-import { BookDetails } from "./bookDetails/BookDetails";
+// import { BookDetails } from "./bookDetails/BookDetails";
 import "./user-page.css";
+// import { use } from "express/lib/router";
 
 export const UserPage = () => {
   const [currentUser] = useContext(UserContext)["user"];
   const [bookData, setBookData] = useState("");
   const [genreData, setGenreData] = useState("");
   const [individualBook, setIndividualBook] = useState("");
+  const [sendIndivBook, setSendIndivBook] = useState("");
   // const [message, setMessage] = useState("");
 
   const history = useHistory();
 
   const getBookDetails = (book) => {
-    setIndividualBook(book);
+    setIndividualBook((prevState) => book);
+    // setIndividualBook(book);
     console.log(individualBook);
   };
+
+  useEffect(() => {
+    setSendIndivBook(individualBook);
+    console.log("indiv", sendIndivBook);
+  }, [sendIndivBook, individualBook]);
 
   // const bookRemovedReRender = (newBookList) => {
   //   setBookData(newBookList);
@@ -81,8 +89,9 @@ export const UserPage = () => {
           )}
         </div>
 
-        {individualBook && individualBook.length !== 0 ? (
+        {sendIndivBook ? (
           // <div>{individualBook.title}</div>
+
           <div>yes</div>
         ) : (
           <div>error</div>
