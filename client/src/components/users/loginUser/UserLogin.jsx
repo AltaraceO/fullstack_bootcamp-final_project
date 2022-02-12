@@ -1,13 +1,12 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../../UserContext";
 import url from "../../../api/api";
-// import { UserLogout } from "../logoutUser/UserLogout";
 import "../registration/registration.css";
 
 export const UserLogin = () => {
   const [state, setState] = useState({
-    email: "nina@nina.com",
-    password: "same4all",
+    email: "",
+    password: "",
   });
   const [currentUser, setCurrentUser] = useContext(UserContext)["user"];
   const [message, setMessage] = useState("");
