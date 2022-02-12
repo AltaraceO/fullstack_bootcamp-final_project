@@ -1,10 +1,13 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../../UserContext";
 import url from "../../../api/api";
+import { DeleteAccount } from "../deleteAccount/DeleteAccount";
+import "./upload.css";
 
 export const Upload = () => {
   const [currentUser, setCurrentUser] = useContext(UserContext)["user"];
+  const [sure, setSure] = useState(false);
 
   const history = useHistory();
 
@@ -30,7 +33,17 @@ export const Upload = () => {
 
   return (
     <div>
-      <input type="file" onChange={handleUploadFile} />
+      <div>
+        <label className="upload-button">
+          <input type="file" onChange={handleUploadFile} />
+          Upload profile picture
+        </label>
+      </div>
+      <br />
+      <button className="upload-button" onClick={() => setSure(true)}>
+        Delete Account
+      </button>
+      {sure && <DeleteAccount />}
     </div>
   );
 };

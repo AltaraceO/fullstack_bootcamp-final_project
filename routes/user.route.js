@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const multer = require("multer");
+const upload = require("../middleware/multer");
 const userController = require("../controllers/user.controller");
 const auth = require("../middleware/auth");
 
@@ -40,28 +40,16 @@ router.post("/notReadBook", auth, (req, res) => {
   userController.notReadBook(req, res);
 });
 
-//middleware for uploading files MULTER
-const upload = multer({
-  //destination folder
-  // dest: "avatar",
-  limits: {
-    //restrict to 1megaByte
-    fileSize: 1000000,
-  },
-  fileFilter(req, file, cb) {
-    if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
-      return cb(new Error("file must be an image"));
-    }
-    cb(undefined, true);
-  },
-});
-
 router.post("/avatar", auth, upload.single("avatar"), (req, res) => {
   userController.avatar(req, res);
 });
 
 router.get("/getUser", auth, (req, res) => {
   userController.getUser(req, res);
+});
+
+router.delete("/deleteUser", auth, (req, res) => {
+  userController.deleteUser(req, res);
 });
 
 module.exports = router;

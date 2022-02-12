@@ -161,6 +161,15 @@ const getUser = async (req, res) => {
   }
 };
 
+const deleteUser = async (req, res) => {
+  try {
+    await req.user.remove();
+    res.status(200).send(req.user);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+
 module.exports = {
   addUser,
   loginUser,
@@ -173,4 +182,5 @@ module.exports = {
   notReadBook,
   avatar,
   getUser,
+  deleteUser,
 };

@@ -1,0 +1,39 @@
+.warning-box {
+  border: solid 3px;
+  border-top-color: #f3b5b5;
+  border-left-color: #f3b5b5;
+  border-right-color: #eb5252;
+  border-bottom-color: #eb5252;
+  padding: 1rem;
+  margin: 2rem;
+  color: #aa5858;
+  box-shadow: rgba(0, 0, 0, 0.29) 0px 1px 4px;
+}
+
+.delete-button {
+  white-space: nowrap;
+  text-align: center;
+  border: solid 2px;
+  border-top-color: #fcf7f2;
+  border-left-color: #fcf7f2;
+  border-right-color: #eea2a2;
+  border-bottom-color: #eea2a2;
+  border-radius: 2px;
+  padding: 8px 18px;
+  background: transparent;
+  color: rgb(230, 107, 107);
+  margin: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  cursor: url(../../../cursor/smolHand.png), pointer;
+}
+
+.delete-button:hover {
+  background: #f1dfdd;
+}
+
+.delete-button:active {
+  border-top-color: #eea2a2;
+  border-left-color: #eea2a2;
+  border-right-color: #fcf7f2;
+  border-bottom-color: #fcf7f2;
+}

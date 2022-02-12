@@ -1,0 +1,31 @@
+input[type="file"] {
+  display: none;
+}
+.upload-button {
+  white-space: nowrap;
+  text-align: center;
+  border: solid 2px;
+  border-top-color: #fcf7f2;
+  border-left-color: #fcf7f2;
+  border-right-color: #535353;
+  border-bottom-color: #535353;
+  border-radius: 2px;
+  padding: 8px 18px;
+  margin: 20px;
+  background: transparent;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  cursor: url(../../../cursor/smolHand.png), pointer;
+}
+
+.upload-button:hover {
+  background: #f9efe4;
+  color: #472d10;
+}
+
+.upload-button:active {
+  border-top-color: #535353;
+  border-left-color: #535353;
+  border-right-color: #fcf7f2;
+  border-bottom-color: #fcf7f2;
+}
