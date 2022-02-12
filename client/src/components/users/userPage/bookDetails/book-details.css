@@ -1,10 +1,12 @@
 .book-detail-display {
   padding: 1rem;
   text-align: left;
-  /* border-top: 2px solid #ffffff;
-  border-left: 2px solid #ffffff;
-  border-bottom: 2px solid #cccccc;
-  border-right: 2px solid #cccccc; */
+}
+
+@media (max-width: 400px) {
+  .book-detail-display {
+    padding: 0;
+  }
 }
 
 .book-detail-container {
@@ -112,4 +114,62 @@
 
 .link-like {
   font-size: 10px;
+}
+
+@media (max-width: 400px) {
+  .book-detail-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .comment-section {
+    margin: auto;
+    width: 100%;
+  }
+  .comment-section textarea {
+    margin: auto;
+  }
+  .remove-button {
+    border-radius: 2px;
+    padding: 2px;
+    margin: auto;
+  }
+  .comment-container {
+    padding-right: 2px;
+    margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .prev-comments {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    align-items: center;
+    align-items: center;
+  }
+  .prev-comments div {
+    width: auto;
+    padding: 2px;
+  }
+  .new-comment-container {
+    margin: auto;
+    width: 100%;
+    flex-direction: column;
+  }
+  .new-comment-container button {
+    height: auto;
+    width: 100%;
+  }
+  .new-comment-container textarea {
+    width: 100%;
+  }
+  .book-buttons {
+    padding-top: 10px;
+    margin: auto;
+    gap: 2px;
+  }
 }

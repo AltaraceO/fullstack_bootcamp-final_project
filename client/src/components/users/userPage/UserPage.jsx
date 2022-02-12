@@ -68,7 +68,7 @@ export const UserPage = () => {
 
   const renderIndividual = () => {
     return (
-      <div>
+      <>
         {sendIndivBook && (
           <BookDetails
             likeFunc={bookLike}
@@ -76,7 +76,7 @@ export const UserPage = () => {
             details={sendIndivBook}
           />
         )}
-      </div>
+      </>
     );
   };
 

@@ -1,6 +1,5 @@
 .user-page {
   display: flex;
-  /* max-width: 100%; */
 }
 
 .genre-bar {
@@ -9,6 +8,16 @@
 
 .genre-bar h3 {
   color: teal;
+}
+
+@media (max-width: 400px) {
+  .genre-bar {
+    margin: auto;
+  }
+  .user-page {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .genre {
@@ -32,21 +41,21 @@
   color: teal;
 }
 
+@media (max-width: 400px) {
+  .genre {
+    font-size: 10px;
+    padding: 2px;
+    margin: auto;
+  }
+  .genre p {
+    text-align: right;
+    font-size: 8px;
+    color: teal;
+  }
+}
+
 .books-n-details {
   max-width: 80%;
-  /* border: solid 2px;
-  border-top-color: #fcf7f2;
-  border-left-color: #fcf7f2;
-  border-right-color: #535353;
-  border-bottom-color: #535353; */
-}
-
-.carousel {
-  /* height: 30vh; */
-}
-
-.book-detail {
-  /* height: calc(100vh - 400px); */
 }
 
 .green-button {
@@ -76,4 +85,13 @@
   border-left-color: #535353;
   border-right-color: #fcf7f2;
   border-bottom-color: #fcf7f2;
+}
+@media (max-width: 400px) {
+  .books-n-details {
+    width: auto;
+  }
+  .green-button {
+    padding: 2px;
+    margin: auto;
+  }
 }

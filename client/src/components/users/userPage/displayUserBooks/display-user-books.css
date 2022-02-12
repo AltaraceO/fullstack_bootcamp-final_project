@@ -52,6 +52,13 @@
     width: 75vw;
   }
 }
+@media (max-width: 400px) {
+  .carousel {
+    width: 90vw;
+    height: auto;
+    gap: 2px;
+  }
+}
 .carousel::-webkit-scrollbar {
   display: none;
 }
@@ -70,6 +77,12 @@
   border-right-color: #535353;
   border-bottom-color: #535353;
   cursor: url(../../../../cursor/smolHand.png), pointer;
+}
+@media (max-width: 400px) {
+  .carousel-arrow {
+    font-size: 20px;
+    padding: 1px;
+  }
 }
 
 .carousel-arrow:hover {
@@ -92,4 +105,10 @@
 
 .small-thumb {
   width: 100px;
+}
+
+@media (max-width: 400px) {
+  .small-thumb {
+    width: 60px;
+  }
 }

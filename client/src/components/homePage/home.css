@@ -1,0 +1,78 @@
+.intro {
+  display: flex;
+  text-align: justify;
+  text-justify: inter-word;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  padding: 8px 16px;
+  max-width: 85vw;
+}
+.about {
+  text-align: justify;
+  text-justify: inter-word;
+  border: solid 2px;
+  border-top-color: #fff;
+  border-left-color: #fff;
+  border-right-color: #cccccc;
+  border-bottom-color: #cccccc;
+  padding: 30px;
+  /* height: 40vh; */
+  margin-right: 2rem;
+}
+
+.details {
+  border: solid 2px;
+  border-top-color: #fff;
+  border-left-color: #fff;
+  border-right-color: #cccccc;
+  border-bottom-color: #cccccc;
+  padding: 30px;
+  /* height: 40vh; */
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  max-width: 85vw;
+  /* border: solid 1px grey; */
+  margin: 1rem;
+  padding: 1rem 10rem;
+}
+
+.home-button {
+  white-space: nowrap;
+  text-align: center;
+  border: solid 2px;
+  border-top-color: #fcf7f2;
+  border-left-color: #fcf7f2;
+  border-right-color: #cccccc;
+  border-bottom-color: #cccccc;
+  border-radius: 2px;
+  padding: 8px 18px;
+  background: transparent;
+  color: black;
+  margin: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  cursor: url(../../cursor/smolHand.png), pointer;
+}
+
+@media (max-width: 400px) {
+  .home-button {
+    padding: 2px;
+    margin: 3px;
+    margin-left: 4px;
+  }
+}
+
+.home-button:hover {
+  background: #f6e7d6;
+  color: #472d10;
+}
+
+.home-button:active {
+  border-top-color: #535353;
+  border-left-color: #535353;
+  border-right-color: #fcf7f2;
+  border-bottom-color: #fcf7f2;
+}
