@@ -24,7 +24,7 @@ export const NavBar = () => {
           </Link>
         )}
         <Link className="main-button" to="/search-subject">
-          Search by Subject
+          Search
         </Link>
       </div>
 

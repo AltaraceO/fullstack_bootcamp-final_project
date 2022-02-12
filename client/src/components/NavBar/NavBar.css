@@ -10,16 +10,40 @@
   justify-content: space-between;
 }
 
+@media (max-width: 400px) {
+  .nav-bar {
+    height: auto;
+    flex-wrap: wrap;
+    padding: 5px;
+    height: auto;
+  }
+}
+
 .main-three {
   padding: 10px 15px;
   display: flex;
   gap: 1rem;
 }
 
+@media (max-width: 400px) {
+  .main-three {
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+  }
+}
+
 .user-buttons {
   display: flex;
   margin-right: 2rem;
   gap: 1rem;
+}
+@media (max-width: 400px) {
+  .user-buttons {
+    margin: 0;
+    gap: 2px;
+  }
 }
 
 .user-buttons button {
@@ -49,6 +73,14 @@
   cursor: url(../../cursor/smolHand.png), pointer;
 }
 
+@media (max-width: 400px) {
+  .main-button {
+    padding: 2px;
+    margin: 3px;
+    margin-left: 4px;
+  }
+}
+
 .main-button-user {
   background: #e8f9f6;
 }
@@ -72,9 +104,4 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  /* border: 2px solid;
-  border-top-color: #fff;
-  border-left-color: #fff;
-  border-right-color: #cccccc;
-  border-bottom-color: #cccccc; */
 }

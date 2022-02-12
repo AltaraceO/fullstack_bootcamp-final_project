@@ -16,8 +16,14 @@
   border-bottom: 2px solid #cccccc;
   border-right: 2px solid #cccccc;
   background: #f9efe4;
-  /* filter: contrast(0.9); */
-  /* filter: blur(0px); */
+}
+
+@media (max-width: 400px) {
+  .outer-form-container {
+    width: auto;
+    margin: 4px;
+    gap: 2px;
+  }
 }
 
 .form-container {
