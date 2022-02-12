@@ -5,6 +5,7 @@ import googleUrl from "../../../api/googleApi";
 import { DisplayResults } from "../displaySearchResults/DisplayResults";
 import "./subject-api.css";
 import logo from "../../../spinner/hourGls.gif";
+import { ToTheTop } from "../../toTheTop/ToTheTop";
 
 export const SubjectApi = () => {
   const [cat, setCat] = useState("");
@@ -104,6 +105,7 @@ export const SubjectApi = () => {
       </form>
       {spinner && <img className="hour-glass" src={logo} alt="hourGlass" />}
       {bookResults && <DisplayResults results={bookResults} />}
+      <ToTheTop />
     </div>
   );
 };

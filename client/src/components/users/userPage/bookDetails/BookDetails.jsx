@@ -22,12 +22,18 @@ export const BookDetails = ({ likeFunc, func, details }) => {
             <BookComments book={bookInfo} user={currentUser} />
           </div>
           <div className="book-detail-display">
+            {console.log(bookInfo)}
             <h3>{bookInfo.title}</h3>
             <h5>{bookInfo.authors}</h5>
             <img src={bookInfo.thumb} alt="cover" />
-            {bookInfo.likes?.length > 0 && (
-              <h6> User likes {bookInfo.likes?.length}</h6>
-            )}
+            <div className="link-like">
+              <a href={bookInfo.url}>Link</a>
+              {bookInfo.likes?.length > 0 && (
+                <span>
+                  | Likes- <strong> {bookInfo.likes?.length}</strong>
+                </span>
+              )}
+            </div>
           </div>
         </div>
         <div className="book-buttons">

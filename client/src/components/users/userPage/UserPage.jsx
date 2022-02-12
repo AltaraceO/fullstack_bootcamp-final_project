@@ -86,7 +86,11 @@ export const UserPage = () => {
         {bookData && bookData.length !== 0 ? (
           <DisplayUserBooks func={getBookDetails} results={bookData} />
         ) : (
-          <RegularMessage message={"Add books by selecting search results"} />
+          <RegularMessage
+            message={
+              "Add to your list by selecting books in the search results"
+            }
+          />
         )}
       </div>
     );

@@ -5,6 +5,7 @@
 }
 
 .carousel {
+  height: 250px;
   display: flex;
   width: 46vw;
   overflow-y: hidden;

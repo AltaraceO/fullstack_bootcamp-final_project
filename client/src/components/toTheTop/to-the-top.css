@@ -1,0 +1,32 @@
+.back-up-button {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 4rem;
+  z-index: 99;
+  white-space: nowrap;
+  text-align: center;
+  border: solid 2px;
+  border-top-color: #fff;
+  border-left-color: #fff;
+  border-right-color: #535353;
+  border-bottom-color: #535353;
+  border-radius: 2px;
+  padding: 4px 11px;
+  margin: 5px;
+  background: transparent;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  cursor: url(../../cursor/smolHand.png), pointer;
+}
+
+.back-up-button:hover {
+  background: #f9efe4;
+  color: #472d10;
+}
+
+.back-up-button:active {
+  border-top-color: #535353;
+  border-left-color: #535353;
+  border-right-color: #fcf7f2;
+  border-bottom-color: #fcf7f2;
+}

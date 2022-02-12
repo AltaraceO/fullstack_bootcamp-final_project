@@ -35,3 +35,12 @@ a {
   text-decoration: none;
   cursor: url(../cursor/smolHand.png), pointer;
 }
+
+.message {
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #cccccc;
+  border-right: 2px solid #cccccc;
+  padding: 1rem;
+  margin: 1rem;
+}
