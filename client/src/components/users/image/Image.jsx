@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../UserContext";
 import url from "../../../api/api";
+import "../../NavBar/NavBar.css";
 
 export const Image = () => {
   const [currentUser] = useContext(UserContext)["user"];
@@ -28,8 +29,13 @@ export const Image = () => {
 
   return (
     <div>
-      <button>click</button>
-      {image && <img src={`data:image/png;base64,${image}`} alt="" />}
+      {image && (
+        <img
+          className="profile-pic"
+          src={`data:image/png;base64,${image}`}
+          alt=""
+        />
+      )}
     </div>
   );
 };

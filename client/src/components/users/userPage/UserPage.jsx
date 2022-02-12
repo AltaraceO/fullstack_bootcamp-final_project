@@ -5,7 +5,6 @@ import url from "../../../api/api";
 import { DisplayUserBooks } from "../userPage/displayUserBooks/DisplayUserBooks";
 import { RegularMessage } from "../../messages/RegularMessage";
 import { BookDetails } from "./bookDetails/BookDetails";
-import { Upload } from "../upload/Upload";
 import "./user-page.css";
 
 export const UserPage = () => {
@@ -103,7 +102,6 @@ export const UserPage = () => {
           )}
         </div>
         {render()}
-        <Upload />
       </div>
     </div>
   );

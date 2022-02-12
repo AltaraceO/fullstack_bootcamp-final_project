@@ -44,3 +44,14 @@
   border-right-color: #fcf7f2;
   border-bottom-color: #fcf7f2;
 }
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* border: 2px solid;
+  border-top-color: #fff;
+  border-left-color: #fff;
+  border-right-color: #cccccc;
+  border-bottom-color: #cccccc; */
+}

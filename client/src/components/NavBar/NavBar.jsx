@@ -29,7 +29,9 @@ export const NavBar = () => {
       {currentUser && (
         <>
           <UserLogout />
-          <Image />
+          <Link to="/change-image">
+            <Image />
+          </Link>
         </>
       )}
     </div>

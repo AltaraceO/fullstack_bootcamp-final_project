@@ -9,6 +9,7 @@ import { SubjectApi } from "./components/search/bySubject/SubjectApi";
 // import { BookApi } from "./components/search/byBook/BookApi";
 import { UserPage } from "./components/users/userPage/UserPage";
 import { Registration } from "./components/users/registration/Registration";
+import { Upload } from "./components/users/upload/Upload";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
                   <Route exact path="/search-subject" component={SubjectApi} />
 
                   <Route exact path="/user-page" component={UserPage} />
+                  <Route exact path="/change-image" component={Upload} />
                 </Switch>
               </div>
             </div>
