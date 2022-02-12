@@ -15,14 +15,13 @@ export const Home = () => {
           short extract and links
         </div>
         <div className="details">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, enim
-          dolorum. Nostrum sint impedit deleniti eos esse consectetur suscipit
-          neque laboriosam nesciunt nihil facere ullam velit non maiores,
-          laudantium reprehenderit harum temporibus sit, consequuntur aut nam
-          sed! Quas blanditiis cupiditate corrupti harum, cumque molestiae
-          aspernatur inventore incidunt aliquam ipsam aperiam fuga, nemo porro
-          in quam beatae. Sit sapiente temporibus ab, expedita dolorum quia aut
-          exercitationem molestiae laborum laudantium. Perferendis, modi!
+          OpenLibrary.org is an open source project. Open Library offers free,
+          public, low-volume Web APIs and bulk Monthly Data Dumps for accessing
+          book and author catalog data. Our Web APIs are ideal for book services
+          which need to make infrequent, real-time searches for specific books,
+          their authors, and their availability. For projects which require
+          importing books, authors, or covers in bulk, please kindly download
+          our free data dumps.
         </div>
       </div>
       <div className="links">

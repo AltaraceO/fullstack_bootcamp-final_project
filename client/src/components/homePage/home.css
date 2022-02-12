@@ -17,7 +17,6 @@
   border-right-color: #cccccc;
   border-bottom-color: #cccccc;
   padding: 30px;
-  /* height: 40vh; */
   margin-right: 2rem;
 }
 
@@ -28,14 +27,12 @@
   border-right-color: #cccccc;
   border-bottom-color: #cccccc;
   padding: 30px;
-  /* height: 40vh; */
 }
 
 .links {
   display: flex;
   justify-content: space-between;
   max-width: 85vw;
-  /* border: solid 1px grey; */
   margin: 1rem;
   padding: 1rem 10rem;
 }
@@ -75,4 +72,32 @@
   border-left-color: #535353;
   border-right-color: #fcf7f2;
   border-bottom-color: #fcf7f2;
+}
+
+@media (max-width: 400px) {
+  .intro {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 1px;
+    padding: 0;
+    width: 100%;
+  }
+  .about {
+    padding: 1rem;
+    margin: auto;
+    margin-top: 10px;
+  }
+  .details {
+    padding: 1rem;
+    margin-top: 10px;
+  }
+  .links {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    margin: auto;
+    margin-top: 10px;
+    padding: 0;
+  }
 }

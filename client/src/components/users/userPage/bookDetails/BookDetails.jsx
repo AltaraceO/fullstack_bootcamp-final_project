@@ -27,7 +27,9 @@ export const BookDetails = ({ likeFunc, func, details }) => {
             <h5>{bookInfo.authors}</h5>
             <img src={bookInfo.thumb} alt="cover" />
             <div className="link-like">
-              <a href={bookInfo.url}>Link</a>
+              <a href={bookInfo.url} target="_blank">
+                Link
+              </a>
               {bookInfo.likes?.length > 0 && (
                 <span>
                   | Likes- <strong> {bookInfo.likes?.length}</strong>
