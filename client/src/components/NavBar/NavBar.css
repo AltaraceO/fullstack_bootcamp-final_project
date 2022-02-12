@@ -1,12 +1,35 @@
 .nav-bar {
+  height: 40px;
   padding: 10px;
   width: 100%;
   background: #f9efe4;
   border: solid 2px;
   border-color: transparent transparent #472d10 transparent;
-  /* font-size: 18px; */
   display: flex;
-  /* justify-content: space-between; */
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-three {
+  padding: 10px 15px;
+  display: flex;
+  gap: 1rem;
+}
+
+.user-buttons {
+  display: flex;
+  margin-right: 2rem;
+  gap: 1rem;
+}
+
+.user-buttons button {
+  margin: 18px;
+}
+
+.user-buttons img {
+  margin-top: 13px;
+  padding: 4px;
+  border: solid 1px lightgrey;
 }
 
 .main-button {

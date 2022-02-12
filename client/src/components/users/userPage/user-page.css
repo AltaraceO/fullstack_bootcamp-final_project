@@ -4,9 +4,11 @@
 }
 
 .genre-bar {
-  /* margin: 6px; */
-  /* max-width: 20%; */
-  /* border: solid 2ps */
+  margin-right: 1rem;
+}
+
+.genre-bar h3 {
+  color: teal;
 }
 
 .genre {

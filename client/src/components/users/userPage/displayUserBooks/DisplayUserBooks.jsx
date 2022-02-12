@@ -1,9 +1,9 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
-import { UserContext } from "../../../UserContext";
+import React, { useState, useEffect, useRef } from "react";
+// import { UserContext } from "../../../UserContext";
 import "./display-user-books.css";
 
 export const DisplayUserBooks = ({ func, results }) => {
-  const [currentUser] = useContext(UserContext)["user"];
+  // const [currentUser] = useContext(UserContext)["user"];
   const [userBooks, setUserBooks] = useState("");
 
   const listRef = useRef(null);

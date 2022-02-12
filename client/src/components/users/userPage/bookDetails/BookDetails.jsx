@@ -30,9 +30,11 @@ export const BookDetails = ({ likeFunc, func, details }) => {
             )}
           </div>
         </div>
-        <div>
-          <BookLikes likeFunc={likeFunc} book={details} />
-          <Read book={details} />
+        <div className="book-buttons">
+          <div className="first-two-buttons">
+            <BookLikes likeFunc={likeFunc} book={details} />
+            <Read book={details} />
+          </div>
           <RemoveBook func={func} book={details} />
         </div>
       </div>

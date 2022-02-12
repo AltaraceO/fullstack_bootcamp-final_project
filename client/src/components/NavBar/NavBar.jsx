@@ -8,32 +8,38 @@ export const NavBar = () => {
   const [currentUser] = useContext(UserContext)["user"];
   return (
     <div className="nav-bar">
-      <Link className="main-button" to="/">
-        Home
-      </Link>
-      {!currentUser && (
-        <Link className="main-button" to="/registration">
-          Login
+      <div className="main-three">
+        <Link className="main-button" to="/">
+          Home
         </Link>
-      )}
-
-      {currentUser && (
-        <Link className="main-button main-button-user" to="/user-page">
-          Welcome {currentUser.name}
-        </Link>
-      )}
-      <Link className="main-button" to="/search-subject">
-        Search by Subject
-      </Link>
-
-      {currentUser && (
-        <>
-          <UserLogout />
-          <Link to="/change-image">
-            <Image />
+        {!currentUser && (
+          <Link className="main-button" to="/registration">
+            Login
           </Link>
-        </>
-      )}
+        )}
+
+        {currentUser && (
+          <Link className="main-button main-button-user" to="/user-page">
+            Welcome {currentUser.name}
+          </Link>
+        )}
+        <Link className="main-button" to="/search-subject">
+          Search by Subject
+        </Link>
+      </div>
+
+      <div className="user-buttons">
+        {currentUser && (
+          <>
+            <UserLogout />
+            <div>
+              <Link to="/change-image">
+                <Image />
+              </Link>
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };
