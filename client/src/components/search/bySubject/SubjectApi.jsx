@@ -5,7 +5,6 @@ import googleUrl from "../../../api/googleApi";
 import { DisplayResults } from "../displaySearchResults/DisplayResults";
 import "./subject-api.css";
 import logo from "../../../spinner/hourGls.gif";
-// import { use } from "express/lib/router";
 
 export const SubjectApi = () => {
   const [cat, setCat] = useState("");

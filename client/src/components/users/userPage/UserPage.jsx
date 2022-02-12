@@ -5,6 +5,7 @@ import url from "../../../api/api";
 import { DisplayUserBooks } from "../userPage/displayUserBooks/DisplayUserBooks";
 import { RegularMessage } from "../../messages/RegularMessage";
 import { BookDetails } from "./bookDetails/BookDetails";
+import logo from "../../../spinner/hourGls.gif";
 import "./user-page.css";
 
 export const UserPage = () => {
@@ -13,6 +14,7 @@ export const UserPage = () => {
   const [genreData, setGenreData] = useState("");
   const [individualBook, setIndividualBook] = useState("");
   const [sendIndivBook, setSendIndivBook] = useState("");
+  const [spinner, setSpinner] = useState(false);
 
   const history = useHistory();
 
@@ -44,6 +46,7 @@ export const UserPage = () => {
     };
 
     const getUserBooks = async () => {
+      setSpinner(true);
       try {
         //config comes second with GET and third in POST!!
         const books = await url.get("/books/getBooks", config);
@@ -54,6 +57,7 @@ export const UserPage = () => {
       } catch (err) {
         console.log(err.response);
       }
+      setSpinner(false);
     };
     if (!currentUser) {
       history.push("/registration");
@@ -62,7 +66,7 @@ export const UserPage = () => {
     }
   }, [currentUser, history]);
 
-  const render = () => {
+  const renderIndividual = () => {
     return (
       <div>
         {sendIndivBook && (
@@ -76,33 +80,47 @@ export const UserPage = () => {
     );
   };
 
+  const renderCarousel = () => {
+    return (
+      <div className="carousel">
+        {bookData && bookData.length !== 0 ? (
+          <DisplayUserBooks func={getBookDetails} results={bookData} />
+        ) : (
+          <RegularMessage message={"Add books by selecting search results"} />
+        )}
+      </div>
+    );
+  };
+
+  const renderGenre = () => {
+    return genreData ? (
+      genreData.map((g) => {
+        return (
+          <div className="genre" key={g._id}>
+            <span>{g.genre}</span>
+            <p> {((g.value / bookData.length) * 100).toFixed(2)}%</p>
+          </div>
+        );
+      })
+    ) : (
+      <div>Add genre</div>
+    );
+  };
+
   return (
     <div className="user-page">
       <div className="genre-bar">
         <h3>Categories</h3>
-        {genreData ? (
-          genreData.map((g) => {
-            return (
-              <div className="genre" key={g._id}>
-                <span>{g.genre}</span>
-                <p> {((g.value / bookData.length) * 100).toFixed(2)}%</p>
-              </div>
-            );
-          })
-        ) : (
-          <div>Add genre</div>
-        )}
+        {spinner ? <div>...</div> : renderGenre()}
       </div>
 
       <div className="books-n-details">
-        <div className="carousel">
-          {bookData && bookData.length !== 0 ? (
-            <DisplayUserBooks func={getBookDetails} results={bookData} />
-          ) : (
-            <RegularMessage message={"Add books by selecting search results"} />
-          )}
-        </div>
-        {render()}
+        {spinner ? (
+          <img className="hour-glass" src={logo} alt="hourGlass" />
+        ) : (
+          renderCarousel()
+        )}
+        {renderIndividual()}
       </div>
     </div>
   );
