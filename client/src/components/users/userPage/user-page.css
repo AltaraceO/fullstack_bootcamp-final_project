@@ -10,6 +10,8 @@
 }
 
 .genre {
+  width: 10rem;
+  flex-wrap: wrap;
   text-align: left;
   font-size: 15px;
   padding: 8px 10px;
@@ -29,7 +31,7 @@
 }
 
 .books-n-details {
-  max-width: 80%;
+  max-width: 30%;
   /* border: solid 2px;
   border-top-color: #fcf7f2;
   border-left-color: #fcf7f2;
