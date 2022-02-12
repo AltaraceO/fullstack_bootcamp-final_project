@@ -79,6 +79,7 @@ export const UserPage = () => {
   return (
     <div className="user-page">
       <div className="genre-bar">
+        <h3>Categories</h3>
         {genreData ? (
           genreData.map((g) => {
             return (

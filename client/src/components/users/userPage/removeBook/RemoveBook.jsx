@@ -14,10 +14,10 @@ export const RemoveBook = ({ book, func }) => {
     func(books.data);
   };
   return (
-    <div>
+    <>
       <button className="remove-button" onClick={onHandleRemove}>
         Remove Book
       </button>
-    </div>
+    </>
   );
 };

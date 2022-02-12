@@ -15,20 +15,27 @@ export const BookDetails = ({ likeFunc, func, details }) => {
   }, [details]);
 
   return (
-    <div>
-      <div className="book-detail-display">
-        <h3>{bookInfo.title}</h3>
-        <h5>{bookInfo.authors}</h5>
-        <img src={bookInfo.thumb} alt="cover" />
-        <span>{bookInfo.likes?.length}</span>
-        <div className="comment-section">
-          <BookComments book={bookInfo} user={currentUser} />
+    <>
+      <div className=" comment-section">
+        <div className="book-detail-container">
+          <div>
+            <BookComments book={bookInfo} user={currentUser} />
+          </div>
+          <div className="book-detail-display">
+            <h3>{bookInfo.title}</h3>
+            <h5>{bookInfo.authors}</h5>
+            <img src={bookInfo.thumb} alt="cover" />
+            {bookInfo.likes?.length > 0 && (
+              <h6> User likes {bookInfo.likes?.length}</h6>
+            )}
+          </div>
+        </div>
+        <div>
+          <BookLikes likeFunc={likeFunc} book={details} />
+          <Read book={details} />
+          <RemoveBook func={func} book={details} />
         </div>
       </div>
-
-      <RemoveBook func={func} book={details} />
-      <BookLikes likeFunc={likeFunc} book={details} />
-      <Read book={details} />
-    </div>
+    </>
   );
 };

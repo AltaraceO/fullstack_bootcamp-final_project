@@ -31,25 +31,30 @@ export const BookComments = ({ book, user }) => {
 
   return (
     <>
-      Comments:
-      {comments &&
-        comments.map((comm) => {
-          return (
-            <div key={comm._id}>
-              <strong>{comm.author}</strong>: {comm.comment}
-            </div>
-          );
-        })}
-      <textarea
-        rows="5"
-        cols="50"
-        type="text"
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
-      />
-      <button className="reg-button" onClick={onHandleClick}>
-        Comment
-      </button>{" "}
+      <div className="comment-container">
+        <div className="prev-comments">
+          {comments &&
+            comments.map((comm) => {
+              return (
+                <div key={comm._id}>
+                  <strong>{comm.author}</strong>: {comm.comment}
+                </div>
+              );
+            })}
+        </div>
+        <div className="new-comment-container">
+          <textarea
+            // rows="5"
+            // cols="50"
+            type="text"
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+          />
+          <button className="reg-button" onClick={onHandleClick}>
+            Comment
+          </button>
+        </div>
+      </div>
     </>
   );
 };

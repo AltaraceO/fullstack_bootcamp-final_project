@@ -1,9 +1,17 @@
 .book-detail-display {
   padding: 1rem;
-  border-top: 2px solid #ffffff;
+  text-align: left;
+  /* border-top: 2px solid #ffffff;
   border-left: 2px solid #ffffff;
   border-bottom: 2px solid #cccccc;
-  border-right: 2px solid #cccccc;
+  border-right: 2px solid #cccccc; */
+}
+
+.book-detail-container {
+  display: flex;
+  /* border: 1px solid red; */
+  justify-content: center;
+  gap: 40px;
 }
 
 .comment-section {
@@ -52,4 +60,42 @@
   border-left-color: #535353;
   border-right-color: #fcf7f2;
   border-bottom-color: #fcf7f2;
+}
+
+.comment-container {
+  /* border: 1px solid red; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.prev-comments {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 8px;
+  /* border: 1px solid red; */
+  align-items: flex-start;
+  text-align: left;
+  align-items: flex-start;
+}
+.prev-comments div {
+  width: 100%;
+  padding: 4px 8px;
+  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  border-top: 2px solid #cccccc;
+  border-left: 2px solid #cccccc;
+}
+
+.new-comment-container {
+  /* border: 1px solid red; */
+  margin: 5px;
+  display: flex;
+  align-items: center;
+}
+.new-comment-container button {
+  height: 35px;
 }
